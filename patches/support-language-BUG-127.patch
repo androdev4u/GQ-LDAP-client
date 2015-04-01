@@ -1,0 +1,12 @@
+diff -Nur src/formfill.c src/formfill.c
+--- src/formfill.c	2007-05-14 18:26:50.000000000 +0200
++++ src/formfill.c	2015-04-01 14:11:44.649155694 +0200
+@@ -170,7 +170,7 @@
+      char *d = g_utf8_strchr(c, -1, ';'); /* UTF-8: doesn't hurt */
+ 
+      if (d) {
+-	  *d = 0;
++	//  *d = 0;
+      }
+      return c;
+ }

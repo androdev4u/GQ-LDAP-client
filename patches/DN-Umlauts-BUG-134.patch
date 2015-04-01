@@ -1,0 +1,21 @@
+diff -Nur src/encode.c src/encode.c
+--- src/encode.c	2007-05-14 18:26:51.000000000 +0200
++++ src/encode.c	2015-04-01 14:02:45.127938394 +0200
+@@ -90,12 +90,16 @@
+      char *out;
+      size_t outlen;
+      iconv_t conv;
++     const char *g_codeset;
+ 
+      in = (char *) native_string;
+      out = ldap_string;
+ /*       len = strlen(in); */
+      outlen = len * 2 + 1; /* Worst case */
+-     conv = iconv_open(LDAP_CODESET, gq_codeset);
++
++     g_get_charset(&g_codeset);
++
++     conv = iconv_open(LDAP_CODESET, g_codeset);
+ 
+      if (conv != (iconv_t) (-1)) {
+ 	  while(len > 0 && outlen > 0) {
