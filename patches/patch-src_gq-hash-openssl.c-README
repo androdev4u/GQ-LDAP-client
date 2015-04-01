@@ -1,0 +1,6 @@
+https://sourceforge.net/p/gqclient/bugs/153/
+ Creator: Bernard Spil 
+
+The code uses the compatibility methods/types from openssl/des_old.h that have been marked deprecated since OpenSSL 0.9.7. OpenSSL's new development roadmap indicates that these will be removed in the next version 1.0.3 and the current 1.0.1 will go end-of-support at the end of 2016
+
+These methods and types can easily be replaced by their new counterparts DES_ Attached patch fixes this.
