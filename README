@@ -1,0 +1,148 @@
+GQ is a GTK-based LDAP client. Features include:
+
+  - browse and search modes
+  - LDAPv3 schema browser
+  - template editor
+  - edit and delete entries
+  - add entries with templates
+  - export subtree or whole server to LDIF file
+  - use any number of servers
+  - search based on single argument or LDAP filter
+  - TLS support for LDAPv3
+  - filter bookmarks
+
+Getting GQ:
+
+  http://biot.com/gq/
+
+IMPORTANT NOTES:
+
+1.0:
+* Configuration file syntax
+  The configuration file syntax has changed between 0.7.0 and 1.0 in
+  a backwardly incompatible way. You should backup your old configuration, in
+  case you want/need to go back to a version earlier than 1.0!!
+
+* Upgrading to GTK2 & configuration
+  The configuration file up to 0.7.0 was saved in a locale specific
+  encoding. When using GTK2 the UTF-8 encoding gets used. Switching
+  back to an older version may cause configuration data corruption!
+  
+0.7:
+  The configuration file syntax has changed between 0.6.0 and 0.7.0 in
+  a backwardly incompatible way. You should backup your old configuration, in
+  case you want/need to go back to a version earlier than 0.7.0!!
+
+  
+
+
+Compiling:
+
+  You'll need the OpenLDAP library and header files (http://www.OpenLDAP.org/).
+  If you compile against OpenLDAP 2.x libraries, GQ will have access to LDAPv3
+  schema information, and use it. However, it will work with any LDAPv3
+  compliant server (and then some) once compiled.
+
+  If you compile against OpenLDAP 1.2.x or another LDAP library, the schema
+  functionality won't be available at all.
+
+  If you have trouble compiling gq, please first try to compile gq with a 
+  recent version of OpenLDAP. Note that the "officially supported"
+  (this only means that the maintainer of gq uses it) OpenLDAP is at version
+  2.0.23 or above. Support for OpenLDAP 2.1.x is not yet fully tested, but some
+  code dealing with peculiarities of 2.1 is already present. Testers (and
+  contributors) are welcome.
+  
+  You will also need gtk+ 1.2.x installed.
+
+  For support of the advanced support for the jpegPhoto attribute you will
+  also need gdk-pixbuf.
+
+  To be able to use the advanced support for X509 certificates, for a
+  correct treatment of the userPassword attribute and for TLS/SSL
+  support of gq you will also need OpenSSL (0.9.6b is known to
+  work). [Note: The use of OpenSSL may not be legal in your country
+  due to laws prohibiting its use. Nobody connected with gq advises you
+  to use OpenSSL in this situation or takes any responsibility if you
+  nevertheless do so.]
+
+  NOTE: since 0.6.0 gq contains support for internationalized messages
+  and for the detection of client side codepages (eg. ISO-8859-2 if you
+  live in a country in the eastern part of Europe.) For this to work
+  you _might_ have to use the --with-localedir configure option to point
+  to your system locale directory (In this case you might have to be
+  root to install gq, as the message catalogs are stored
+  there). Otherwise your system library might not be able to find the
+  correct codepage to use for your locale. If this is no option, you might
+  alternativly try any of the following methods:
+
+  1.) Use the --with-default-codeset option of the configure script.
+
+  2.) Copy the stuff for your locale found under your system locale
+      directory to the equivalent position below the gq locale directory
+      (most importantly the LC_CTYPE file)
+
+  Note that I never tried the 2nd possibility. Also note that I am not
+  an I18N/codeset expert, so all of the above may be complete
+  non-sense... you have been warned. Any clarifications/reports about this
+  are welcome.
+
+  Having said all of the above there is hope that a recent reordering
+  of how things are done during detection of the codeset none of all
+  of the above is actually necessary. Please try it and report any
+  problems!
+
+  For more generic installation instructions, see the file INSTALL.
+
+  If your OpenLDAP installation is in a nonstandard place, use
+
+	configure --with-ldap-prefix=/path/to/install
+
+  The configure program expects to find the headers and libraries under
+  include/ and lib/ respectively.
+
+  If your LDAP server uses Kerberos, compile GQ with Kerberos support:
+
+	configure --with-kerberos-prefix=/path/to/install
+
+  To enable LDAPv3 over TLS support, simply build your LDAP libraries
+  with TLS capabilities enabled, and GQ should auto-configure.  See
+  README.TLS for more information.
+
+
+Contributing:
+
+  GQ is a Sourceforge project. The Sourceforge URL is:
+
+	http://sourceforge.net/project/?group_id=3805
+
+  Contributions are more than welcome, and your help is appreciated.
+
+
+Contact:
+
+  For any feedback, comments, suggestions for improvement, and requests for
+  features, please join the mailing list at Sourceforge. You can subscribe
+  on this URL:
+
+	http://lists.sourceforge.net/mailman/listinfo/gqclient-discuss
+
+  As of version 0.6.0 (and some beta versions before that version)
+  Peter Stamfest <peter@stamfest.at> is the new maintainer of gq. You can
+  also directly contact him.
+
+  The inventor and long-time maintainer of gq can be contacted at
+  bert@biot.com, but he is out of the day-to-day business with gq ;-)
+
+  Here is the original note from bert:
+      You can also mail be directly at bert@biot.com. Alternatively, you can
+      join the #ldap channel on either IRCnet or OPN.
+
+Acknowledgements:
+
+  Joris Heyndrickx (info@moonbeetle.com) made the logo and icons.
+  Karl Derdelinckx (DerdeK@yucom.be) made the website.
+  Ross Golder (rossigee@bigfoot.com) contributed RPM and Gnome integration
+  Doug Nazar (nazard@dragoninc.on.ca) contributed speed fixes for browse
+	mode and many other fixes. He is also a GTK+ wizard.
+  Alexander Guy (a7r@andern.org) added support for TLS with LDAPv3.

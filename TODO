@@ -1,0 +1,314 @@
+TODO list and ROADMAP
+---------------------
+
+NOTE: [1.0] denotes features to be implemented for 1.0
+      [1.x] denotes features to be implemented for 1.0 or later
+
+
+----------------
+INTERESTING BUGS
+----------------
+
+* [1.0] Handle update referrals - iff I can find out how to detect them
+
+* [1.x] Allow to use a "master password" for passwords stored in the
+  .gq config file. Shouldn't be too hard - either implement through
+  the encoding XML element, or do this through the xmlsec library
+  once it becomes available in mainstream distros.
+
+* [1.x] update schemabrowse tree on serverlist update (browsetree
+  already done) - Will be done when the GtkTree gets removed in schema
+  browse mode.
+
+* [1.x] search mode: (peter) - improve display type support. Will be
+  done when the CList gets replaced with a gtk2 widget.
+
+* Proper OpenLDAP 2.1 support, taking care of all DN-related issues wrt 
+  the encoding of unusual DNs (Honor RFC2253 and the possible
+  hex-encoding there even for OpenLDAP 2.0.x More generally: Deal with
+  special characters in DNs.)
+
+* [1.x] Better error reporting of LDAP error situations. Currently we handle
+  LDAP_SUCCESS and LDAP_SERVER_DOWN but ignore the rest. Pointed out
+  indirectly by Bernhard Reiter <bernhard@intevation.de>.
+
+* [1.x] Think about the moving stuff in browse mode: 
+  Either
+    - Should move deletion out of the moving business and delay
+      it until _after_ we have ended the moving
+    - OR should we delete and retry in order to circumvent any
+      sizelimits???
+
+* Take care to properly deal with schema information in case of a lost
+  connection with a server. - Maybe not actually necessary, a quick
+  check revealed that schema information seems to never be stored for
+  longer periods of time.
+
+* [1.x] Entry widget: fonts are not used on startup
+
+------------------
+UNINTERESTING BUGS
+------------------
+
+* load_context errors should pop up after mainwin
+
+
+-----
+MINOR
+-----
+
+* use scrolled area in error_flush: ldifadd.c may generate 1000s of
+  errors This is not as simple as it seems. Just using a scrolled
+  window won't work, as the autosizing of the dialog will not work
+  properly then.
+
+* make the add attribute button insensitive if the shown object is not
+  an extensibleObject
+
+------------
+ENHANCEMENTS
+------------
+
+* [1.x] Rewrite the preferences layout - do it like Mozilla (Bert)
+
+* [1.x] Enhance the rudimentary run-type typing system to catch
+  improper use of data structures
+
+* Make the tabs (Search/Browse/Schema) object oriented. Partly done.
+
+* templates: allow defaults? 
+
+* ability to limit visible attributes for objectclasses (do not show
+  empty attributes one never uses anyway) (suggested by Chris Jackson
+  <cjackson@ghsinc.com>) - partly done: missing: make configurable in 
+  what one is not interested at all
+
+* Allow to "apply" a template to an already existing object + add
+  default values from template as well (suggested by Chris Jackson
+  <cjackson@ghsinc.com>)
+* import from LDIF
+
+* dt_oc: allow for automatic addition of intermediate
+  objectClasses. Add a default "top" template, with only the single
+  "top" objectClass. These two changes allow for efficient addition of
+  objects of a single "class".  Suggested by Emil Assarsson
+  <emil.assarsson@bolina.hsb.se> * Add all superclasses should they be
+  missing when adding objectClasses.  [Jonas Petersson <zap@xms.se>]
+
+* nested main loop invocations during possibly long running LDAP
+  operations (any search), allow to interrupt running operations in
+  certain situations.  See mail by Emil Assarsson
+  <emil.assarsson@bolina.hsb.se> dated Wed, 09 Oct 2002 19:40:37
+  +0200.
+
+* [1.x] Even more gtk2 support. I would like to switch the Schema
+  Browser to the new gtk2 GtkTreeView infrastructure. For 1.0 the old
+  browser must remain working.
+
+* [1.x] never do ldap_add when moving trees. (Use triangulation like
+  with the towers of hanoi?) Only change DNs to make sure NO
+  information can get lost.
+
+* [1.x] More displaytypes
+  + PKCS7 and PKCS12 browsers
+
+* [1.x] Rewrite drag-and-drop:
+  - _only_ use ldap_modrdn when moving trees within one server. This
+    allows to take care of hidden attributes implicitly
+
+
+--------
+BLUE SKY
+--------
+
+* schema designer (when OpenLDAP supports writable schema)
+* generate change and undo log in LDIF
+
+#########################################################################
+#########################################################################
+#########################################################################
+
+-------------------------------------
+FIXED BUGS / IMPLEMENTED ENHANCEMENTS
+-------------------------------------
+
+* [1.0] Implement the new saving-policy for all cases.
+
+* [1.0] search mode:
+	- multiple selections, abstract selection list function for delete,
+	  export to LDIF etc
+
+* [1.0] dt_password: Add LANMAN hash for completeness.
+
+* [1.0] Make ALL LDAP operations referral-safe (that is, change all ldap_* to 
+  ldap_*_ext and set ManageDSAit iff necessary)
+  - Done for ldap_search
+  - Done for ldap_rename
+
+  Some probably still missing, but...
+
+* [1.0] Re-introduce  the Export to LDIF functionality for servers
+  - done for servers and referrals alike
+
+* [1.x] Split browse.c into several files - it is > 2500 lines long now
+
+* [1.0] SECURITY: Think about the extended referred-to server authentication
+  tests in get_referral_server and the security implications (configurable?)
+  - Implemented through the addition of yet another preferences tab
+
+* [1.0] Search-Mode: Get rid of sortdn - implement through search options
+
+* [1.0] Drag'n'Drop: Avoid unnecessary refreshes of temporary objects
+  in the right pane.
+
+* [1.x] improve gtk2 support - Quite impressive by now.
+
+* [1.0] Search-Mode: Avoid circular reference when chasing referrals, use
+  maximum recursion depth for chasing. - partly done, but OK: the
+  max. recursion depths allows to avoid infinit recursion.
+
+* [1.0] Referral support
+  - Make search mode referral-aware
+
+* [1.x] Make struct ldapserver a reference counting GObject to make
+  sure we do not get into trouble due to the handing around of 
+  servers between various modes. Until then: think about willingly
+  leaking the memory used for transient servers.
+
+* [1.0] Search-Mode: Get rid of show_oc - implement through attributes to 
+  show for he search result (partly done)
+
+* [1.0] Search-Mode: Allow to specify the recursion depth when
+  following referrals, allow to show referrals instead of following then.
+
+* [1.0] Improve LDAP error reporting - most error messages now indicate what
+  object (eq. server, LDAP entry) caused the problem.
+
+* [1.0] Referral support
+  - somehow indicate a referral in the browse tree and allow to 
+    follow it, maybe through the context menu? Configurable?
+  - Make context menu in browse mode node-type specific. Eg. the
+    current context menu does not make sense for referral nodes or
+    server nodes.
+  - allow to specify bind dn/pw/method for followed referrals, currently
+    only anonymous binds get used
+
+* search mode: (peter)
+  Take displaytypes into account when building the search result list. It does
+  not make sense to show a jpegPhoto as a string... [rudimentary support]
+
+* [1.0] work towards gtk2 - mostly done, need the XML parser change
+  (see below) for encoding reasons.
+
+* [1.0] Get rid of Hashtables as central data structures. This is to
+  get in some type safety. [Mostly done by Bert for tabs, done by
+  Peter for mainwin and preferences]
+  Use a run-type typing system to catch improper use of data structures 
+
+* [1.0] schemabrowse mode: items require a double-click to be selected, not
+        a single click as usual
+
+* [1.0] schemabrowse mode: context menu on server, refresh option segfaults
+
+* [1.0] search mode: double-click to select/edit an entry doesn't work
+  Cause: Signal handling in GTK2 has changed. The button press signal
+  handler returned TRUE unconidtionally, signalling to gtk that the 
+  signal was handled even when it was not button 3.
+
+* [1.0] search mode: "find in browser" and "add all to browser" segfault
+  - but only if no browse mode tab has been shown previously - fixed
+
+* [1.0] Switch to a proper XML parser for configuration file
+  parsing. MUST DO THIS or we will end in an encoding mess when using
+  gtk2. When first starting up, the encoding of an old configuration
+  file must be found out. The only way to do this is by using the
+  default codepage setting. The need to switch to a proper parser also
+  arises due to the requirement to properly parse multi-byte
+  characters in config files. This does not really work currently.
+
+* search mode:
+	- change in server config should initialize searchbase combo, too
+          (seems to be done for quite a while!)
+	- RMB on entry in search mode shouldn't deselect the entry
+          (cannot reproduce)
+
+* update browse ctree on serverlist update
+* make refresh_mode_serverlist(): combo in search mode, delete/add/change in
+  browse mode. tablist can be used for this now... (done for browse and search
+   mode already, similar to the above issue)
+
+* take schema from entry
+
+* Take care of possible buffer overflow situations. Pointed out by
+  Bernhard Reiter <bernhard@intevation.de>. As always, there may be
+  issues remaining.
+
+* [1.0] Support for the extensibleObject object class
+
+* first startup: deleting default localhost server segfaults (FIXED??)
+
+* [1.0] More displaytypes
+  + Most notably a calendar to enter dates and times
+
+* [1.0] encode passwords in .gq - this doesn't add any real security, but at
+  least the password cannot be easily remembered if one happens to
+  glance at it. (This is similar to why HTTP basic authentication
+  encodes the password).
+
+* [1.0] LDAP URI support in addition to server/port [check patches by
+  "¡rp·d, Magos·nyi" <mag@bunuel.tii.matav.hu> and 
+  Albrecht Dreﬂ <adress@idsystems-ag.de>]
+
+* put up rootDSE info in browse mode's server detail (cn=monitor?)
+
+  -> well, we now have some interesting information there, but
+     probably not what Bert had in mind.
+  UPDATE (2002-09-25): Now we actually take information directly 
+  from the root DSE
+
+* [1.0] Fix dt_password.c: handling of the construction of encoded passwords
+  (get rid of any strcpy, strcat and only using GByteArray methods)
+
+* [1.0] Allow to change displaytypes on-the-fly
+
+* mainwin: ^c makes a browse tab!
+* get rid of hardcoded dep on libssl, only link when needed
+* get rid of hardcoded dep on libcrypto - now DISPLAYTYPE_PASSWORD is turned
+  off if we do not have crypto support available.
+* probe for V2 or V3 on connect, store in struct ldapserver. Use ber_free
+  only if V3 supported.
+* occasional core-dumps in brose mode - might be related to browsehash_free, 
+  hard to reproduce (hopefully fixed)
+* I18N (peter)
+* Make the search tab context menu (right aka button 3 click) work the same
+  way as it does in the other tabs
+* When using the dt_oc combo box menu and _not_ selecting a new
+  objectClass the objectClass gets deleted from the attribute. This
+  may lead to data loss (attributes may be deleted) if the changes get
+  applied afterwards. ADDITIONAL NOTE: to make clear what I mean:
+  selecting the drop down menu for the dt_oc combobox and then
+  dragging the mouse selects the first element of the drop down list,
+  which is the empty element. Releasing the mouse effectively removes
+  the objectclass (peter)
+
+  FIXED by putting the current value in the first place in the combo
+  list. This also makes it easier to remember the old value of the
+  combobox.
+
+* Do not show the password in the preferences window if it has been
+  entered interactively before (peter)
+
+* changing the RDN suddenly dumps core!!! Seems to be related to 
+  refresh_subtree! (peter)
+
+* browse mode: refresh of subtree after RDN mod selects first entry
+  in subtree -> find and select the entry with the new RDN instead
+  NOTE: This seems to have gotten worse. When testing this, the behaviour
+  was totally erratic (peter) - Fixed in new browse mode implementation
+
+* check for the codeset ISO-8859-1 vs ISO8859-1 to be used for iconv
+  in configure.in
+
+* Better keyboard support (at least for main menu) (peter) - will probably 
+  have to wait for gtk2 - mostly done
+

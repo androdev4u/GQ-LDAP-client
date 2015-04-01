@@ -1,0 +1,43 @@
+Since the second beta version of gq 0.7.0 there is a separate
+distribution of I18N message catalogs. These "langpacks" have been
+introduced for the following reasons:
+
+* langpacks can be build outside the gq release cycle (which sometimes
+  tends to be rather long)
+* People not interested in I18N messages can forget about them
+* Simpler integration for new translations. No need to patch configure.in
+* Translators may build their own language packs
+  (make langpack-dist)
+
+How to use a langpack
+---------------------
+
+1.) Download gq
+2.) Unpack the gq distribution
+
+      tar -xzf gq-0.7.0.tar.gz
+
+3.) Download a language pack matching the version of gq
+4.) Put the downloaded language pack into the top directory of gq
+
+      mv gq-0.7.0-langpack-1.tar.gz gq-0.7.0
+
+5.) Unpack the language pack - This will produce a directory named something
+    like gq-0.7.0-langpack-1
+
+      tar -xzf gq-0.7.0-langpack-1.tar.gz
+
+6.) run the langpack script:
+
+      gq-0.7.0-langpack-1/langpack .
+
+7.) configure + make gq as usual
+
+
+Currently the following languages are part of the language pack:
+
+Language      Code Last version   Translator
+--------------------------------------------------------------------------
+Czech         cs   0.6.0          Tomas Dobrovolny <tomasdobrovolny@atlas.cz>
+German        de   0.7.0beta2     Peter Stamfest <peter@stamfest.at>
+Japanese      ja   pre 0.7.0beta1 Hatuka*nezumi <nezumi@jca.apc.org>

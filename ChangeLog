@@ -1,0 +1,1982 @@
+# 1.2.3
+
+2008-01-08  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: released 1.2.3
+
+2008-01-08  Sven herzberg  <herzi@gnome-de.org>
+
+	* src/gq-tab-browse.c: fixed a warning by providing the right format
+	options
+
+2007-05-14  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: fix some connectivity issues (based on observation and
+	patch from Pawel Salek on gqclient-discuss)
+
+# 1.2.2
+
+2006-11-13  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: released 1.2.2
+
+2006-10-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq.c: make command line parsing even more robust
+
+2006-10-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq.c: abort if there was a problem with the command line
+	arguments
+
+2006-10-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/xmlparse.c: fixed a crasher (#1482748), thanks to the NetBSD
+	team for providing a patch
+
+# 1.2.1
+
+2006-10-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: released 1.2.1
+
+2006-10-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: fixed the hashing tests
+
+# 1.2.0
+
+2006-09-28  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: release GQ 1.2.0
+
+# 1.1.3
+
+2006-09-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: release GQ 1.1.3
+
+2006-09-16  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-server.h: added a set_name() macro
+	* src/prefs.c: set a sane default name for new servers
+
+2006-09-15  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: fix the gcrypt check part
+
+2006-09-15  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-server.h: added gq_server_get_name()
+	* src/prefs.c: fix some problems with the server list
+
+2006-09-14  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: increased gnome keyring dependency to 0.4.4 for
+	gnome_keyring_item_delete_sync()
+	* data/gq-ldif.xml.in: fixed the LDIF description
+	* src/gq-hash.h: allow using md5 even in case of having libgcrypt only
+
+2006-09-14  Sven Herzberg  <herzi@gnome-de.org>
+
+	* gq.spec.in: fixed RPM build with additional locales
+
+# 1.1.2
+
+2006-09-13  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: release GQ 1.1.2
+
+2006-09-13  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-hash-openssl.c: fix distcheck
+
+2006-09-07  Sven Herzberg  <herzi@gnome-de.org>
+
+	* data/gq.desktop.in: improved the menu hint
+	* src/common.h,
+	* src/configfile.c,
+	* src/dt_entry.c,
+	* src/dt_oc.c,
+	* src/errorchain.c,
+	* src/filter.c,
+	* src/formfill.c,
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-server.c,
+	* src/gq-hash-openssl.c,
+	* src/gq-tab-browse.c,
+	* src/gq-tab-search.c,
+	* src/gq-xml.c,
+	* src/input.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/state.c,
+	* src/template.c,
+	* src/tinput.c,
+	* src/util.c: s/assert/g_assert/
+
+2006-09-06  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: set the gettext package by using the new macro;
+	cleaned up all of the configure arguments
+	* macros/herzi-gettext.m4: new macro
+
+2006-09-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am,
+	* NEWS,
+	* RELNOTES: merged RELNOTES into NEWS
+
+2006-09-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/formfill.c: really fix bug 1551653
+	* src/gq-tab-browse.c: fixed a warning
+	* src/input.c,
+	* src/tinput.c: fixed potential bugs
+
+2006-09-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/formfill.c: fix bug 1551653
+
+2006-09-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: making things more beautiful
+	* src/Makefile.am: this time i really fix bug 1551071
+
+2006-09-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: pretty-print configuration options
+
+2006-09-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: --enable-browser-dnd for distcheck
+	* src/browse-dnd.c: no errors, no warnings
+
+2006-09-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-browser-model.c,
+	* src/gq-browser-model.h: added missing files
+
+# 1.1.1
+
+2006-09-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: bring out 1.1.1
+
+2006-09-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: try to fix bug 1551071
+	* src/dt_time.c: try to fix bug 1548780
+
+2006-09-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	* po/POTFILES.in,
+	* src/Makefile.am,
+	* src/configfile.c: distcheck fixes
+
+2006-09-02  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-server.c,
+	* src/gq-browser-node.c,
+	* src/gq-browser-node.h: perform server-query a bit more OO like
+
+2006-09-02  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse-dnd.c,
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-dn.h,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-reference.h,
+	* src/gq-browser-node-server.c,
+	* src/gq-browser-node-server.h,
+	* src/gq-browser-node.h,
+	* src/gq-tab-browse.c: improved some code
+
+2006-09-02  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse-export.h,
+	* src/gq-xml.h,
+	* src/mainwin.h,
+	* src/progress.h,
+	* src/state.h,
+	* src/xmlparse.h,
+	* src/xmlutil.h: removed config.h includes from headers where possible
+
+2006-09-02  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-constants.h: added missing file
+
+2006-09-02  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/common.h: removed lots of ugly stuff, moved all the other things
+	to more appropriate places
+	* src/configfile.c,
+	* src/configfile.h,
+	* src/dt_oc.c,
+	* src/formfill.c,
+	* src/formfill.h,
+	* src/gq-browser-node-dn.c,
+	* src/gq-server.h,
+	* src/gq-tab-search.c,
+	* src/gq-tab-search.h,
+	* src/input.c,
+	* src/ldif.h,
+	* src/prefs.c,
+	* src/tinput.c: updates
+
+2006-08-31  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-browser-node-server.c: added a server property to the node
+
+2006-08-31  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/configfile.c,
+	* src/configfile.h,
+	* src/dt_oc.c,
+	* src/formfill.c,
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-reference.h,
+	* src/gq-browser-node-server.c,
+	* src/gq-server-list.c,
+	* src/gq-server.c,
+	* src/gq-server.h,
+	* src/gq-tab-browse.c,
+	* src/gq-tab-schema.c,
+	* src/gq-tab-search.c,
+	* src/gq-xml.c,
+	* src/input.c,
+	* src/prefs.c,
+	* src/template.c,
+	* src/tinput.c,
+	* src/util.c: GqServer is a GObject now
+
+2006-08-31  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse-dnd.c,
+	* src/browse-export.c,
+	* src/browse-export.h,
+	* src/configfile.c,
+	* src/configfile.h,
+	* src/dt_oc.c,
+	* src/filter.c,
+	* src/formfill.c,
+	* src/formfill.h,
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-reference.h,
+	* src/gq-browser-node-server.c,
+	* src/gq-browser-node-server.h,
+	* src/gq-keyring.c,
+	* src/gq-keyring.h,
+	* src/gq-server-list.c,
+	* src/gq-server-list.h,
+	* src/gq-server.c,
+	* src/gq-server.h,
+	* src/gq-tab-browse.c,
+	* src/gq-tab-browse.h,
+	* src/gq-tab-schema.c,
+	* src/gq-tab-schema.h,
+	* src/gq-tab-search.c,
+	* src/gq-tab-search.h,
+	* src/gq-xml.c,
+	* src/gq.c,
+	* src/input.c,
+	* src/input.h,
+	* src/ldapops.c,
+	* src/ldapops.h,
+	* src/ldif.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/prefs.h,
+	* src/schema.c,
+	* src/schema.h,
+	* src/syntax.c,
+	* src/syntax.h,
+	* src/tdefault.c,
+	* src/template.c,
+	* src/template.h,
+	* src/tinput.c,
+	* src/tinput.h,
+	* src/util.c,
+	* src/util.h: renamed the ldapserver structure
+
+2006-08-31  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/common.h,
+	* src/configfile.c,
+	* src/gq-server.c,
+	* src/gq-server.h: extracted server specific stuff into an own source
+	file
+	* src/gq-keychain.m: added missing file
+
+2006-08-26  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in,
+	* macros/objc.m4,
+	* src/Makefile.am: added build system support for Objective C and the
+	required Apple Keychain
+	* data/Makefile.am: fix distcheck
+
+2006-08-26  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am,
+	* src/browse-dnd.c,
+	* src/browse-dnd.h,
+	* src/browse.c,
+	* src/browse.h,
+	* src/dt_binary.c,
+	* src/dt_entry.c,
+	* src/dt_generic_binary.c,
+	* src/dt_int.c,
+	* src/dt_jpeg.c,
+	* src/dt_numstr.c,
+	* src/dt_oc.c,
+	* src/dt_password.c,
+	* src/dt_text.c,
+	* src/filter.c,
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-dn.h,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-reference.h,
+	* src/gq-browser-node-server.c,
+	* src/gq-browser-node-server.h,
+	* src/gq-browser-node.h,
+	* src/gq-tab-browse.c,
+	* src/gq-tab-browse.h,
+	* src/gq-tab-schema.c,
+	* src/gq-tab-schema.h,
+	* src/gq-tab-search.c,
+	* src/gq-tab-search.h,
+	* src/gq-tab.c,
+	* src/gq-tab.h,
+	* src/input.c,
+	* src/mainwin.c,
+	* src/mainwin.h,
+	* src/prefs.c,
+	* src/schemabrowse.c,
+	* src/schemabrowse.h,
+	* src/search.c,
+	* src/search.h,
+	* src/template.c: tabs are real GObjects now
+
+2006-08-26  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am,
+	* src/browse-dnd.c,
+	* src/browse-export.c,
+	* src/browse.c,
+	* src/browse.h,
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-dn.h,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-reference.h,
+	* src/gq-browser-node-server.c,
+	* src/gq-browser-node-server.h,
+	* src/gq-browser-node.c,
+	* src/gq-browser-node.h,
+	* src/gq-tab.c,
+	* src/gq-tab.h,
+	* src/gq-tree-widget.c,
+	* src/gq-tree-widget.h,
+	* src/mainwin.h: replaced the custom type system for the browse
+	entries by a GObject based one
+
+2006-08-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am,
+	* src/browse-export.c,
+	* src/browse.c,
+	* src/formfill.c: updated, removed dead code
+	* src/gq-browser-node-dn.c,
+	* src/gq-browser-node-reference.c,
+	* src/gq-browser-node-server.c: started to work on the new GObject
+	based browser nodes
+	* src/gq-tree-widget.c,
+	* src/gq-tree-widget.h: went on with the tree thing
+	* src/dn-browse.c,
+	* src/dn-browse.h,
+	* src/ref-browse.c,
+	* src/ref-browse.h,
+	* src/server-browse.c,
+	* src/server-browse.h: renamed
+
+2006-08-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse.c,
+	* src/dn-browse.c,
+	* src/ref-browse.c: updated to compile without warnings even with the
+	GtkTreeView version
+	* src/gq-tree-widget.c,
+	* src/gq-tree-widget.h: added more pieces to the tree wrapper
+
+2006-08-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse.c: use more GtkCTree wrappers
+	* src/gq-tree-widget.c,
+	* src/gq-tree-widget.h: added more code to wrap the GtkCTree and
+	GtkCList code; started the GtkTreeView implementation
+	* src/search.c: some code cleanup
+
+2006-08-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: added support for mime files
+	* data/Makefile.am: updated
+	* data/gq-ldif.xml.in: added file format definition for LDIF files
+	* data/gq.desktop.in: updated to conform FDo specification
+	* src/Makefile.am: updated
+	* src/browse.c,
+	* src/common.h,
+	* src/gq-tree-widget.c,
+	* src/gq-tree-widget.h: extracted tree code into own source files
+	* src/browse-dnd.c,
+	* src/debug.c,
+	* src/dn-browse.c,
+	* src/gq-xml.c,
+	* src/input.c,
+	* src/prefs.c,
+	* src/ref-browse.c,
+	* src/schemabrowse.c,
+	* src/search.c,
+	* src/util.c,
+	* src/util.h,
+	* src/xmlparse.c: removed #if 0 code
+
+2006-08-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: start supporting libgcrypt and/or libcrypto
+	* src/Makefile.am: updated
+	* src/dt_password.c,
+	* src/dt_password.h: updated
+	* src/encode.c: some improvements
+	* src/formfill.h: removed some hashing specific specifications
+	* src/gq-hash-gnutls.c,
+	* src/gq-hash-openssl.c: implemented some hashing functions using
+	libgcrypt (new code) or openssl (old code from dt_password.c)
+	* src/gq-hash.c,
+	* src/gq-hash.h: added the new hashing interface
+	* src/gq-type-display.c: added missing file
+
+2006-08-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: removed last GTK+ 2 check
+	* src/Makefile.am: removed license hint
+	* src/encode.c,
+	* src/encode.h,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/search.c,
+	* src/tdefault.c: small code updates
+
+# 1.1.0
+
+2006-08-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: version 1.1.0
+	* NEWS: added 1.1.0 release notes
+
+2006-08-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/dt_binary.c,
+	* src/dt_clist.c,
+	* src/dt_entry.c,
+	* src/dt_generic_binary.c,
+	* src/dt_int.c,
+	* src/dt_numstr.c,
+	* src/dt_oc.c,
+	* src/dt_password.c,
+	* src/formfill.c,
+	* src/formfill.h,
+	* src/gq-keyring.c,
+	* src/input.c,
+	* src/syntax.c,
+	* src/syntax.h: fixed the memory leak with the display type mapping
+
+2006-05-25  Sven Herzberg  <herzi@gnome-de.org>
+
+        * src/util.c: fix sasl authentication without password (patch from
+	Andreas Hasenack, fixes bug 1494935)
+
+2006-05-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/dt_binary.c,
+	* src/dt_binary.h,
+	* src/dt_cert.c,
+	* src/dt_cert.h,
+	* src/dt_clist.c,
+	* src/dt_clist.h,
+	* src/dt_crl.c,
+	* src/dt_crl.h,
+	* src/dt_date.c,
+	* src/dt_date.h,
+	* src/dt_entry.c,
+	* src/dt_entry.h,
+	* src/dt_generic_binary.c,
+	* src/dt_generic_binary.h,
+	* src/dt_int.c,
+	* src/dt_int.h,
+	* src/dt_jpeg.c,
+	* src/dt_jpeg.h,
+	* src/dt_numstr.c,
+	* src/dt_numstr.h,
+	* src/dt_oc.c,
+	* src/dt_oc.h,
+	* src/dt_password.c,
+	* src/dt_password.h,
+	* src/dt_text.c,
+	* src/dt_text.h,
+	* src/dt_time.c,
+	* src/dt_time.h,
+	* src/formfill.h,
+	* src/gq-type-display.h,
+	* src/input.c,
+	* src/syntax.c,
+	* src/syntax.h: implemented the display type handling with GObject
+	(contains a reference leak in init_syntaxes())
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/syntax.c: Removed a memory leak
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/dt_binary.c,
+	* src/dt_cert.c,
+	* src/dt_clist.c,
+	* src/dt_crl.c,
+	* src/dt_date.c,
+	* src/dt_entry.c,
+	* src/dt_generic_binary.c,
+	* src/dt_int.c,
+	* src/dt_jpeg.c,
+	* src/dt_numstr.c,
+	* src/dt_oc.c,
+	* src/dt_password.c,
+	* src/dt_text.c,
+	* src/dt_time.c: marked the display type names as translatable
+	* src/input.c: translate the display type name and replaced a while
+	loop with a real for loop
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/gq-type-display.h,
+	* src/syntax.h: extracted the "display-type-handler" into an own file
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/dt_binary.c: potential fix for the font problem
+	* src/dt_password.c: some re-organization
+	* src/dtutil.h: removed unused include
+	* src/filter.c: don't include gq.h
+	* src/gq.c: removed the font-init code (which was leaking memory)
+	* src/gq.h: removed
+	* src/tdefault.c: build the combo box list even without libcrypto
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* AUTHORS: added Philipp to the authors list
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/dt_date.c: fix warnings and compile errors
+
+2006-05-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/dt_date.c,
+	* src/dt_date.h,
+	* src/syntax.c: added a display type for dates (patch by
+	pmhahn@debian.org)
+	* src/formfill.h: register the display type (adjusted from the patch
+	by pmhahn@debian.org)
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* config.guess,
+	* config.sub: remove auto-generated files
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse.c: fix a warning
+	* configure.in,
+	* src/browse-dnd.c,
+	* src/common.h,
+	* src/dn-browse.c,
+	* src/dt_oc.c,
+	* src/dt_time.c,
+	* src/errorchain.c,
+	* src/filter.c,
+	* src/gq-xml.c,
+	* src/input.c,
+	* src/ldapops.c,
+	* src/ldif.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/progress.c,
+	* src/search.c,
+	* src/server-browse.c,
+	* src/util.c,
+	* src/xmlutil.c: replace snprintf by g_snprintf
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: fix CFLAGS usage
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse-dnd.c,
+	* src/browse-export.c,
+	* src/browse.c,
+	* src/dn-browse.c,
+	* src/dt_binary.c,
+	* src/dt_binary.h,
+	* src/dt_clist.c,
+	* src/dt_clist.h,
+	* src/dt_entry.c,
+	* src/dt_entry.h,
+	* src/dt_generic_binary.c,
+	* src/dt_generic_binary.h,
+	* src/dt_int.c,
+	* src/dt_int.h,
+	* src/dt_jpeg.c,
+	* src/dt_jpeg.h,
+	* src/dt_numstr.c,
+	* src/dt_numstr.h,
+	* src/dt_oc.c,
+	* src/dt_oc.h,
+	* src/dt_password.c,
+	* src/dt_password.h,
+	* src/dt_text.c,
+	* src/dt_text.h,
+	* src/dt_time.c,
+	* src/dtutil.c,
+	* src/errorchain.c,
+	* src/filter.c,
+	* src/input.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/progress.c,
+	* src/ref-browse.c,
+	* src/schemabrowse.c,
+	* src/search.c,
+	* src/server-browse.c,
+	* src/state.c,
+	* src/syntax.c,
+	* src/syntax.h,
+	* src/tdefault.c,
+	* src/template.c,
+	* src/util.c: replaced deprecated GtkSignal API with GSignal
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: only check for libxml2
+	* src/xmlparse.c,
+	* src/xmlparse.h: only use libxml2
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/xmlparse.h: removed unused expat stuff
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* AUTHORS: added me
+	* COPYING: removed the copyright stuff
+	* MAINTAINERS: added me
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/mainwin.c: removed the license window and migrated the about
+	dialog to GtkAboutDialog (including the license)
+
+2006-05-23  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/i18n.c,
+	* src/i18n.h: removed (deprecated by glib/gi18n.h)
+	* src/browse-dnd.c,
+	* src/browse-export.c,
+	* src/browse.c,
+	* src/configfile.c,
+	* src/dn-browse.c,
+	* src/dt_binary.c,
+	* src/dt_cert.c,
+	* src/dt_clist.c,
+	* src/dt_crl.c,
+	* src/dt_generic_binary.c,
+	* src/dt_int.c,
+	* src/dt_int.h,
+	* src/dt_numstr.c,
+	* src/dt_numstr.h,
+	* src/dt_oc.c,
+	* src/dt_time.c,
+	* src/errorchain.c,
+	* src/filter.c,
+	* src/formfill.c,
+	* src/gq-xml.c,
+	* src/gq.c,
+	* src/input.c,
+	* src/ldapops.c,
+	* src/ldif.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/progress.c,
+	* src/ref-browse.c,
+	* src/schema.c,
+	* src/schemabrowse.c,
+	* src/search.c,
+	* src/server-browse.c,
+	* src/state.c,
+	* src/template.c,
+	* src/tinput.c,
+	* src/util.c,
+	* src/xmlutil.c: replaced the include of i18n.h by glib/gi18n.h and
+	replaced S_() by Q_()
+
+2006-05-22  Sven Herzberg  <herzi@gnome-de.org>
+
+	* icons/Makefile.am: updated
+	* icons/bomb.xpm,
+	* icons/logo.xpm,
+	* icons/warning.xpm: moved to pixmaps
+	* pixmaps/Makefile.am: added new files
+	* src/browse.c,
+	* src/errorchain.c,
+	* src/mainwin.c,
+	* src/server-browse.c,
+	* src/util.c: removed include ...xpm
+
+2006-05-22  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse.c,
+	* src/common.h,
+	* src/dt_binary.c,
+	* src/dt_cert.c,
+	* src/dt_cert.h,
+	* src/dt_clist.c,
+	* src/dt_clist.h,
+	* src/dt_crl.c,
+	* src/dt_crl.h,
+	* src/dt_entry.c,
+	* src/dt_generic_binary.c,
+	* src/dt_int.c,
+	* src/dt_numstr.c,
+	* src/dt_oc.c,
+	* src/dt_text.c,
+	* src/dt_time.c,
+	* src/encode.c,
+	* src/filter.c,
+	* src/input.c,
+	* src/ldif.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/ref-browse.c,
+	* src/schema.c,
+	* src/schemabrowse.c,
+	* src/search.c,
+	* src/server-browse.c,
+	* src/template.c,
+	* src/tinput.c,
+	* src/util.c: added missing HAVE_CONFIG_H guards around the include
+
+2006-05-22  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: require GLib 2.6 and GTK+ 2.6 for GOption
+	* src/gq.c: implement command line parsing with GOption
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* TODO: some updates
+	* configure.in: removed the setenv() and putenv() checks
+	* src/gq.c: replace the setenv() via putenv() implementation by
+	g_setenv()
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/common.h,
+	* src/configfile.c,
+	* src/errorchain.c,
+	* src/filter.c,
+	* src/gq-xml.c,
+	* src/input.c,
+	* src/ref-browse.c,
+	* src/schema.c,
+	* src/search.c,
+	* src/state.c,
+	* src/template.c,
+	* src/util.c: replace g_free_if() by g_free() as this one does already
+	check for NULL
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am,
+	* configure.in: also use the test directory
+	* test/Makefile,
+	* test/Makefile.am: renamed and modified
+	* test/test-ldif.c: some things to make it compile (though it doesn't
+	link yet)
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* autogen.sh: improve distcheck including
+	* configure.in: check for -Werror and add --enable-werror
+	* src/Makefile.am: use -Werror if requested
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: fix langpack-dist
+	* configure.in: require intltool 0.35.0 and removed ALL_LINGUAS
+	* src/Makefile.am,
+	* data/Makefile.am,
+	* src/gq.desktop,
+	* data/gq.desktop.in: moved the desktop file to support translation
+	* pixmaps/Makefile.am: fix distcheck
+	* po/LINGUAS: the new style of LINGUAS definition
+	* po/Makevars: removed deprecated file
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/configfile.c: cleanup
+	* src/gq-server-list.c: fixed some warnings at the end of the
+	application
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: automagically detect whether or not LDAP_DEPRECATED is
+	necessary
+	* src/Makefile.am: don't always specify LDAP_DEPRECATED
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: removed the definition of LOCALEDIR from the Makefiles
+	into config.h (shorter compile commands)
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/dt_password.c,
+	* src/dt_password.h,
+	* src/syntax.c: enable non-crypto specific code about the password
+	entry (this way the password entry looks the same both with and
+	without libcrypto, although the non-crypt case only allows "Clear"
+	passwords)
+
+2006-05-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/errorchain.c: fixed a typo
+	* src/gq-keyring.c,
+	* src/gq-keyring.h: added forget_password() and get_password()
+	* src/input.c: cleanup
+	* src/prefs.c: updated the server configuration dialog WRT the
+	password entry
+	* src/util.c: moved get_password_from_keyring() to gq-keyring.h
+
+2006-05-19  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/prefs.c: added a toggle button to be able to display the
+	password within the application
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: added the new files
+	* src/common.h: added a GQ_IS_SERVER macro, some whitespace fixes
+	* src/configfile.c: don't store the password with the config file but
+	within GnomeKeyring
+	* src/gq-keyring.c,
+	* src/gq-keyring.h: added some common code to access GnomeKeyring
+	* src/prefs.c: removed the second password entry, two entries are used
+	only when setting passwords
+	* src/util.c: use the new gq-keyring API
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: cleaned up EXTRA_DIST
+	* README.NLS: removed
+	* src/dt_entry.h,
+	* src/dt_int.c,
+	* src/dt_numstr.c,
+	* src/input.c,
+	* src/state.c: small fixes
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in,
+	* src/browse.c,
+	* src/configfile.c,
+	* src/dn-browse.c,
+	* src/dt_binary.c,
+	* src/dt_clist.c,
+	* src/dt_entry.c,
+	* src/dt_entry.h,
+	* src/dt_int.c,
+	* src/dt_jpeg.c,
+	* src/dt_numstr.c,
+	* src/dt_password.c,
+	* src/dt_text.c,
+	* src/dt_time.c,
+	* src/encode.c,
+	* src/errorchain.c,
+	* src/filter.c,
+	* src/formfill.c,
+	* src/gq.c,
+	* src/input.c,
+	* src/mainwin.c,
+	* src/mainwin.h,
+	* src/prefs.c,
+	* src/progress.c,
+	* src/ref-browse.c,
+	* src/schemabrowse.c,
+	* src/search.c,
+	* src/state.c,
+	* src/template.c,
+	* src/util.c: removed almost all GTK+ 1.2 legacy code
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* gq.spec.in: fix the location of the desktop file
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in,
+	* src/Makefile.am,
+	* src/browse-export.c,
+	* src/browse.c,
+	* src/configfile.c,
+	* src/dn-browse.c,
+	* src/dt_int.c,
+	* src/dt_numstr.c,
+	* src/errorchain.c,
+	* src/errorchain.h,
+	* src/formfill.c,
+	* src/prefs.c,
+	* src/search.c,
+	* src/utf8-compat.h,
+	* src/util.c,
+	* src/xmlparse.h: removed the old UTF-8 compatibility code
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in,
+	* src/dt_jpeg.c,
+	* src/dt_jpeg.h,
+	* src/formfill.h,
+	* src/syntax.c: get rid of HAVE_PIXBUF
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: replaced the old GTK+ and GLib checks by pkg-config;
+	hardcoded formerly auto-detected things about this
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/formfill.h: made the display type to an enumeration
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: fix the name of the include guard of the config.h file
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: fix a relict from the old plain gettext time
+
+2006-05-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: added iconv-helpers.h
+	* src/dt_password.c,
+	* src/encode.c: use iconv-helpers.h
+	* src/iconv-helpers.h: added a helper file to be included instead of
+	iconv.h to define ICONV_CONST if iconv.m4 didn't do this for us
+
+2006-05-09  Sven Herzberg  <herzi@gnome-de.org>
+
+	* data/Makefile.am,
+	* data/gq.glade: added necessary data files
+
+2006-05-09  Sven Herzberg  <herzi@gnome-de.org>
+
+	* macros/aclocal-include.m4,
+	* macros/herzi-prefix.m4: added missing macros
+
+2006-05-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: fixed a potential crasher
+
+2006-05-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/input.c: small cleanup
+	* src/util.c: implemented password save/restore
+
+2006-05-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* INSTALL: removed automatically created files
+	* Makefile.am: updated
+	* autogen.sh: require automake 1.9
+	* configure.in: added macros for the prefix, depend on libglade and
+	gnome keyring
+	* icons/Makefile.am: updated
+	* icons/line.xpm,
+	* icons/textarea.xpm: removed xpm files
+	* src/Makefile.am: added the new build dependencies
+	* src/browse.c: improve the scroll bar policy
+	* src/input.c: don't include images into the binary, load dynamically;
+	added action buttons to a toolbar
+	* src/input.h: improved the UI layout
+	* src/mainwin.c: don't right-align the help menu item
+	* src/mainwin.h:
+	* src/util.c: started some things to get gnome keyring support and a
+	nicer login dialog
+	* src/browse-dnd.c,
+	* src/browse-export.c,
+	* src/browse-export.h,
+	* src/debug.c,
+	* src/debug.h,
+	* src/dn-browse.c,
+	* src/dn-browse.h,
+	* src/dtutil.h,
+	* src/dt_password.h,
+	* src/dt_time.h,
+	* src/encode.h,
+	* src/formfill.h,
+	* src/gq.c,
+	* src/gq-xml.h,
+	* src/errorchain.h,
+	* src/i18n.h,
+	* src/ldapops.c,
+	* src/progress.c,
+	* src/progress.h,
+	* src/ref-browse.h,
+	* src/server-browse.h,
+	* src/state.c,
+	* src/state.h,
+	* src/syntax.c,
+	* src/utf8-compat.h,
+	* src/util.h,
+	* src/xmlparse.h,
+	* src/xmlutil.c,
+	* src/xmlutil.h: fix include of config.h
+
+2006-05-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq-server-list.c: added reference counting for servers,
+	implemented missing function
+
+2006-05-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: updated
+	* src/gq-server-list.c,
+	* src/gq-server-list.h,
+	* src/gq-server.h: started a new API for the server list management
+	* src/browse.c,
+	* src/configfile.c,
+	* src/configfile.h,
+	* src/debug.c,
+	* src/debug.h,
+	* src/filter.c,
+	* src/gq-xml.c,
+	* src/gq.c,
+	* src/mainwin.c,
+	* src/prefs.c,
+	* src/ref-browse.c,
+	* src/schema.c,
+	* src/schemabrowse.c,
+	* src/search.c,
+	* src/util.c,
+	* src/util.h: use the new server list API
+
+2006-05-04  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: fix SUBDIRS
+	* autogen.sh: use gnome-autogen
+	* configure.in: make sure HAVE_SETENV gets set properly; use
+	AM_GLIB_GNU_GETTEXT; fix the list of output files
+	* depcomp,
+	* install-sh,
+	* missing: deleted autogenerated files
+	* src/encode.c: make it compile
+
+2006-05-03  Sven Herzberg  <herzi@gnome-de.org>
+
+	updated the structure of the imported subversion trunk
+
+# 1.0.0
+
+2006-04-27  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: release 1.0.0
+
+2006-04-27  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: add the configured base dn if it's not in the list
+	of supplied base dn's (but only in that case)
+
+2006-04-18  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: fix a compile warning introduced by the sasl patch
+
+2006-04-12  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/dn-browse.c: sort DN nodes (fixes request 1277341)
+
+2006-04-11  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: include the intl directory to the distfiles
+	* src/mainwin.c: fix the about dialog, error pointed out by
+	Gergely Tamas
+
+# 1.0 RC 1
+
+2006-04-09  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: release 1.0 RC 1
+
+2006-04-09  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: fix the code for !SASL and !KERBEROS
+
+2006-04-09  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: adding the patch to fix SASL authentication
+
+2006-04-09  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in: minor tweaks before the release candidate
+	* src/input.c,
+	* src/tinput.c: replace some while loops with for loops (which they
+	basically were before
+
+2006-04-08  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: allow deprecated functions for now
+	* src/util.c: fix gq_ldap_explode_dn() for both OpenLDAP 2.1 and 2.2
+
+2006-04-08  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/mainwin.c,
+	* src/mainwin.h: removed big string constants, made the parts
+	translatable
+
+2006-04-08  Sven Herzberg  <herzi@gnome-de.org>
+
+	* .cvsignore: silence
+	* Makefile.am,
+	* configure.in: updated from gettextize (hopefully it doesn't modify
+	these files anymore after checkout)
+	* src/dt_cert.c,
+	* src/dt_crl.c,
+	* src/dt_password.c: fixed compile warnings wrt signedness of numbers
+
+2006-04-06  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/prefs.c: added a missing cast
+	* src/schemabrowse.c: (select_at_from_clist): fix a bug in the schema
+	browser: if an attribute has got multiple names (domainComponent, dc)
+	and the second name gets displayed in the objectClass browser,
+	double-clicking did not pop up an attributeType browser window
+
+# 1.0 Beta 2
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* NEWS,
+	* configure.in: releasing version 1.0beta2
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/prefs.c: let the notebook be scrollable (patch from IKEDA Soji)
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/browse-export.c,
+	* src/browse.c,
+	* src/dt_binary.c,
+	* src/dt_oc.c,
+	* src/dt_text.c,
+	* src/dt_time.c,
+	* src/dtutil.c,
+	* src/filter.c,
+	* src/formfill.c,
+	* src/gq-xml.c,
+	* src/input.c,
+	* src/ldif.c,
+	* src/prefs.c,
+	* src/state.c,
+	* src/syntax.c,
+	* src/template.c,
+	* src/tinput.c,
+	* src/xmlparse.c: fix warnings
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/input.c: (set_hide_empty_attributes): keep the hidden status
+	even when expanding/shrinking a text entry
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/input.c: (build_or_update_inputform): don't automatically select
+	the DN entry
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/util.c: improve the performance of gq_ldap_explode_dn() and make
+	it compatible to the original
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/gq.c: don't turn on fatal warnings by default
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in,
+	* src/gq.c: fixed a memory leak, implement our own version of setenv()
+	if the system doesn't provide one
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* src/Makefile.am: install the gq.desktop file to the right place; fix
+	make clean
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* configure.in,
+	* src/Makefile.am: check whether the compiler understands additional
+	warning flags, keep them in a separate variable to not disturb the
+	configure process
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* autogen.sh: enable maintainer mode
+	* configure.in: don't allow GLib 2.x and GTK+ 1.x
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* acinclude.m4: fixed aclocal warnings
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: updated
+	* .cvsignore,
+	* src/.cvsignore: silence
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* intl/*,
+	* mkinstalldirs,
+	* ABOUT-NLS: removed auto-generated files
+	* Makefile.am: updated by gettext
+	* autogen.sh: new script to generate the build framework
+	* configure.in: removed po/Makefile
+	* src/input.c,
+	* src/mainwin.c: don't try to translate empty strings
+
+2005-05-05  David Malcolm  <dmalcolm@redhat.com>
+
+	* Introduced gq_tree_get_node_at; used it to replace calls to
+	gtk_clist_get_selection_info and gtk_ctree_node_nth	
+
+2005-04-27  David Malcolm  <dmalcolm@redhat.com>
+
+	* Introduced gq_tree_toggle_expansion; used it to replace all calls of
+	gtk_ctree_toggle_expansion.
+
+2005-04-26  David Malcolm  <dmalcolm@redhat.com>
+
+	* Introduced gq_tree_expand_node; used it to replace all calls of
+	gtk_ctree_expand.
+	* Removed tree_row_expand_all since it's dead code.
+	
+2005-04-26  David Malcolm  <dmalcolm@redhat.com>
+
+	* Introduced gq_tree_select_node; used it to replace all calls of
+	gtk_ctree_select.
+
+2005-04-26  David Malcolm  <dmalcolm@redhat.com>
+
+	* Removed _gtk_ctree_toggle_is_leaf (was already marked as
+	DEAD_CODE); introduced gq_tree_is_node_expanded to allow
+	elimination of the only other call to gtk_ctree_get_node_info
+	(outside of the refactoring utility layer).
+
+2005-04-26  David Malcolm  <dmalcolm@redhat.com>
+
+	* Introduced gq_tree_remove_node and gq_tree_remove_children; used
+	them to eliminate all instances of gtk_ctre_remove_node.
+	
+2005-04-26  David Malcolm  <dmalcolm@redhat.com>
+
+	* Work towards a port from GtkCTree to GtkTreeView: Introduce 
+	"GQTreeWidget" and "GQTreeWidgetNode" types, initally aliased with
+	typedefs to GtkCTree and GtkCTreeNode.  Numerous replacements of
+	GtkCTree with GQTreeWidget and of GtkCTreeNode with
+	GQTreeWidgetNode.  Introduced various utility functions to do the
+	tree operations needed by GQ, using these to replace direct usage
+	of gtk_ctree_* code as appropriate (simplifying the code in
+	places, too).	
+
+2005-04-19  David Malcolm  <dmalcolm@redhat.com>
+	
+	Tagged with BeforeTreeCleanup-2005_04_19
+
+2003-11-03 Peter Stamfest <peter@stamfest.at>
+	* Implemented missing rollback capability for failed save attempts
+	  (and tested them in failure situations).
+	* Fixed GUI problem wrt rollback when editing filters
+	* Environment variables GQRC and GQSTATE can be used to override
+	  the filenames of the configuration file (usually ~/.gq) and the
+	  state file (usually ~/.gq-state)
+	* Fixed several buglets wrt template editing
+	* Added configuration settings to turn on/off user-friendly attributes
+	* Added configuration setting to turn of parsing of ldap.conf and 
+	  ~/.ldaprc et.al.
+	* Released 1.0beta1
+2003-11-02 Peter Stamfest <peter@stamfest.at>	
+	* Added user-friendly attribute names for those who like it - I 
+	  rewrote the persistent default displaytype stuff to allow for
+	  LDAP attribute related preferences on a per attribute basis.
+	* Fixed several bugs introduces during the last few days.
+	* Fixed SF bug #832340
+	* Did a lot of testing
+2003-11-01 Peter Stamfest <peter@stamfest.at>	
+	* Last couple of days: Huge changes
+	* rewrote error handling to mostly work with transient/modal windows
+	  when popping up error messages, also makes the interface more 
+	  user-friendly
+2003-10-27 Peter Stamfest <peter@stamfest.at>	
+	* Finally implemented LMHASH for dt_password. I hope I got it right.
+	* The combo box of the dt_password displaytype can be focused now
+	* Restore the right-pane viewport position in browse mode upon a
+	  refresh of the current entry
+	* Fixed SF Bugs 830376 and 830377. Did some I18N of the template
+	  window in the process.
+2003-10-24 Peter Stamfest <peter@stamfest.at>	
+	* More referral changes
+	* Save/Restore input form settings of browse tabs
+	* Configure fixes for libxml/libxml2 detection, seems to work on older
+	  SUSE distros now
+2003-10-23 Peter Stamfest <peter@stamfest.at>	
+	* Applied a patch to gq.spec.in by Simon Matter 
+2003-10-22 Peter Stamfest <peter@stamfest.at>	
+	* LDAP cleanups
+	* Fixed some memory leaks
+	* Allow to turn off clever credential guessing when following
+	  referrals
+	* Got rid of sort searching preference
+2003-10-21 Peter Stamfest <peter@stamfest.at>	
+	* Referral handling & drag'n'drop fixes
+	* Can delete referrals now
+	* Browsing of referrals now works independently of the "hide
+	  internal attributes" setting
+	* Fixed a compile error reported by Jean-Baptiste Quenot
+	  <jb.quenot at caraldi.com>  (forgotten glib.h inclusion)
+2003-10-21 Peter Stamfest <peter@stamfest.at>	
+	* Fixed minor bugs found while testing for release
+	* Released 1.0alpha3
+2003-10-20 Peter Stamfest <peter@stamfest.at>	
+	* New display types - integer and numeric string
+	* Some gtk 1.x fixes
+	* Added title to the search-result popup menu & took care of disabling
+	  non-applicable menu-items
+	* Moved version to 1.0alpha3
+2003-10-19 Peter Stamfest <peter@stamfest.at>	
+	* Added statusbar and error-message history - very convenient to
+	  get an insight in what really happens
+	* Got rid of show_oc (Still to be deleted from the configuration,
+	  though)
+	* Fixed schema-related core-dumping bug(s) with transient servers
+	* Implemented Search Options (stateful), still to do: sizelimit,
+	  timelimit (not sure how to do real timelimits in case of multi
+	  server searches)
+2003-10-18 Peter Stamfest <peter@stamfest.at>	
+	* Introduced critically important ldapserver reference counting
+	  mechanism (massive changes all over) - new policy when dealing with 
+	  struct ldapserver
+	* Proper Referral handling for search mode
+	* Sortable Search results (By clicking on the column labels)
+2003-10-17 Peter Stamfest <peter@stamfest.at>
+	* I herewith declare SASL support to be broken. In its current
+	  state it is not working (and it cannot be made working by me)
+	  for many SASL mechanisms.
+	* Split browse.c and did some other assorted cleanups/restructuring
+	* Improved errormessages and cleaned up status bar message (All start
+	  with an uppercase character now)
+	* Added the ability to obtain a backtrace with error messages through 
+	  a new debugflag (64)
+	* Made some unchangeable data const
+	* Improved referral support and transient server initialization
+	* Added progress-bar window during initial GUI restoration
+2003-10-12 Peter Stamfest <peter@stamfest.at>
+	* Fixed color/style handling for gtk2
+	* Made XML writing attribute aware
+	* Asure it compiles/works with gtk1
+	* Initial support for referrals in browse mode
+	* Fixed state-persistency in browse mode to work through ref nodes
+	* dt_text: Fixed some crashing bugs and added code to specify the 
+	  number of lines shown
+	* Added some error diagnostics and debug stuff for development
+	  (print_trace)
+2003-10-11 Peter Stamfest <peter@stamfest.at>
+	* Fixed several search related bug reported by Bert through TODO
+	* Made search mode UTF-8 clean and memory management safe wrt to
+	  clist column handling
+	* Assure that the result columns can be resized in search mode
+	* Rewrote tab handling in mainwin to be more OO
+	* Save/Restore of mainwin and tab state
+	* Save/Restore of search history
+	* Got rid of many fixed-length buffers
+	* Work around g_string_sprintf problems
+2003-10-10 Peter Stamfest <peter@stamfest.at>
+	* Released 1.0alpha2
+	* Fixed a configure bug when both libxml 1 and 2 are available
+	  (Reported by Marc Britten <yugami@monochromatic.net>)
+2003-10-09 Peter Stamfest <peter@stamfest.at>
+	* Fixed the misuse of the tearoff menu items in many popup menus
+	* Added defaults for the new GUI preferences
+	* Fixed a bug that caused a GTK Warning on shutdown
+	* Added tooltips for the GUI preferences
+2003-10-08 Peter Stamfest <peter@stamfest.at>
+	* Restructured the statusbar handling: statusbar_msg now takes
+	  a printf-style format and a variable argument list
+	* Changed the preferences window to not use gtk_object_[sg]et_data
+	  to store the used widgets for later data retrieval.
+	* Added the use of stock buttons, including nice icons.
+	* Changed the main window to not use gtk_object_[sg]et_data
+	  to store the used widgets.
+	* Some more bugfixes and minor restructuring
+	* Persistant GUI state - introduction if the .gq-state file
+2003-10-05 Peter Stamfest <peter@stamfest.at>
+	* Restructured the errorchain handling. At least for me it looks
+	  saner now: error_push allows for printf-style variable argument
+	  lists, very convenient
+	* Got rid of most hand-knit linked list implementations, replaced
+	  them with GLists (errorchains, config->ldapservers, etc.)
+	* Many object types now have constructors and destructors of the
+	  form new_<type> and free_<type>. Use them instead of
+	  self-allocating and freeing memory as it was done
+	  before. Removed all such old style object handling
+	* Removed the old parser from configfile.c entirely
+	* Got rid of many, many fixed size buffers. These might have been
+	  problematic with variable length characters (as in the standard
+	  UTF-8 encoding)
+2003-10-03 Peter Stamfest <peter@stamfest.at>
+	* Added a libxml/libxml2 based XML config file parser (SAX
+	  based). It should be possible to switch to expat as well.  It
+	  cannot handle some of the encoding issues I have to deal with
+	  right now.
+	* Got rid of the static gq_config. Turned it into a pointer mostly
+	  for practical reasons. This might also reduce the on-disk
+	  file-size of gq.
+2003-10-01 Peter Stamfest <peter@stamfest.at>
+	* New japanese translations (including mnemonics) by Nezumi
+	  (Hatuka*nezumi <nezumi@jca.apc.org>)
+	* Transition to UTF-8
+	* Added missing _()'s in search.c
+2003-09-30 Peter Stamfest <peter@stamfest.at>
+	* Fixed many small bugs wrt gtk2, cleanups
+	* Ported the dt_text to gtk2 and GtkTextView
+	* Added keyboard mnemonics in a-great-many-places. Needs to be
+	  fixed so that for gtk 1.2 those underlines do not show up
+	* Fixed the Filter Window
+	* Almost fixed the License Window (but not quite)
+	* Changed COPYING.h and introduced COPYING.c
+	  (autogenerated). COPYING.c gets built from the top-level COPYING
+	  file.
+2003-09-29 Peter Stamfest <peter@stamfest.at>
+	* The GREAT GTK UPGRADE: gtk 1.2 -> gtk 2 
+          - A full gtk2 development environment is required from now on,
+	    but the distribution should build on gtk 1.2 for the time
+	    being. I want to have the next release as a dual gtk1.x/2
+	    version. Afterward gtk 1.x support will be dropped.
+    	  - Many changes to signal handlers due to new signal semantics in gtk2
+	* Many header files: Added CVS Id-s
+	  copyright notices
+	* Most header files now are self-contained. There is a "test"
+	  target in the src Makefile to check this. TODO: structurize and
+	  reorganize the header files
+	* A ngettext fix to support languages with different word-orders
+	  (Hatuka*nezumi <nezumi@jca.apc.org>)
+	* Added some const keyword where they were indicated by the gtk2
+	  switch.
+2003-09-28 Peter Stamfest <peter@stamfest.at>
+	* Finally added the chinese po file contributed by 
+	  hleil liu <hleil@yahoo.com.cn>
+	* Started to get really ready for autoconf 2.57
+	* Reverted changes to ngettext by Bert ;-)
+	* CVS: Fixed a bug wrt commit-messages
+	* Bumped version to 1.0beta1 (VERY optimistic, I know)
+	* Earlier on: Allow to change the default displaytype for
+	  attributes
+2003-09-28 Bert Vermeulen <bert@biot.com>
+	* removed hashes from input mode
+	* fixed some compile warnings
+2003-09-27 Bert Vermeulen <bert@biot.com>
+	* removed hashes from major modes (search, browse, schema browse)
+	* ctrl-w now closes tabs, ctrl-q quits GQ. Brings the GUI in line
+	  with the rest of the world :-)
+2003-09-19 Bert Vermeulen <bert@biot.com>
+	* get rid of that annoying search/filter dropdown box in search mode
+	  (filter/search is now autodetected)
+	* don't accept empty queries at all, to avoid dumping the entire
+	  directory on hitting return
+2002-09-15 Peter Stamfest <peter@stamfest.at>
+ 	* Added support for NT passwords (LANMAN not yet done)
+2002-11-30 Peter Stamfest <peter@stamfest.at>
+	* Fixed a bug reported by Michael Anderson via the Sourceforge
+	  bug-tracker: LDIF lines exactly 77 chars long caused false empty
+	  lines to be included
+2002-11-02 Peter Stamfest <peter@stamfest.at>
+	* Fixed a bug reported by Waitman C. Gobble
+	  <waitman@emkdesign.com>: When adding/editing a new object in a
+	  separate window, the window got closed (and changes discarded)
+	  if an LDAP error occurred. The window should stay open to allow
+	  to correct the problem.
+2002-10-12 Peter Stamfest <peter@stamfest.at>
+	* Unicode fixes. The following things now are "unicode-aware" (ie.
+	  special characters can be used):
+	  - binddn/bindpw (Dmitry Chernyak <dmi@inkasbank.ru>)
+	  - search base
+	  - browse mode popup menu title
+	* Implemented TODO item:
+	  - Adding/removing/changing a server adds/removes/changes
+	    corresponding entries in the browse tree. Not done in the schema
+            browser, as it uses GtkTree.
+	* New feature: Browse-tree popup menu now contains a "Search below" 
+	  menu item
+2002-10-11 Peter Stamfest <peter@stamfest.at>
+	* Introduction of the language pack distribution. This is designed
+	  to be able to release I18N translations without requiring a gq
+	  release
+	* Long tooltip messages do not have to be translated right now, as
+	  they are not actually used.
+	* configure tests for __tm_gmtoff in struct tm now as well
+	* New german translations
+	* New czech translation, unfortunately only based on 0.6.0 by 
+	  Tomas Dobrovolny <tomasdobrovolny@atlas.cz>
+	* Made "Show relative DN" config setting work again in browse mode.
+	  (Reported by Dmitry Chernyak <dmi@inkasbank.ru>)
+	* Some more tooltips.
+	* "Beautified" some more dialogs
+2002-10-10 Peter Stamfest <peter@stamfest.at>
+	* configure tests and implementation of use of
+	  tm_gmtoff in struct tm vs the global timezone variable (dt_time)
+	* Versionnumber: 0.7.0beta2
+	* Threw away automatic enabling of --with-included-gettext, it did
+	  not work correctly. Produce error messages instead.
+	* replaced ulong by unsigned long in browse-dnd.c
+2002-10-09 Peter Stamfest <peter@stamfest.at>
+	* Fixes for invalid uses of bindpw/enteredpw by
+	  oliver@opencloud.com via debian and Cord Beermann
+	  <cord@Wunder-Nett.org>
+	* New TODOs regarding dt_oc
+	* Fixes to the gq SPEC file - bugs reported by several people
+	  independently
+2002-10-07 Peter Stamfest <peter@stamfest.at>
+	* dt_binary uses a fixed font now
+	* Added a dummy ngettext function in case we have no NLS
+	* "Beautified" some more dialogs
+2002-09-29 Peter Stamfest <peter@stamfest.at>
+	* Released 0.7.0beta1
+2002-09-27 Peter Stamfest <peter@stamfest.at>
+	* Support for the extensibleObject object class.
+	* "Beautified" some dialogs
+2002-09-27 Peter Stamfest <peter@stamfest.at>
+	* Add tooltips (this is just the beginning)
+	* Implemented the ability to hide empty attributes from the object
+	  browser.
+2002-09-26 Peter Stamfest <peter@stamfest.at>
+	* Fixed a bug reported by Stephan Duehr <duehr@b4mad.net> in
+	  connection with a Novell eDirectory server (entries would not be
+	  displayed).
+	* Added two new icons/buttons to the browse window to show/hide empty
+	  attributes
+2002-09-19 Peter Stamfest <peter@stamfest.at>
+	* Finally implement the "Add as new" Button in the object viewer to
+	  add the current content of the viewer as a new object.
+2002-09-18 Peter Stamfest <peter@stamfest.at>
+	* Added code for proper support of singular/plural translations
+	  involving numbers. This includes the replacement of the make_message
+	  function. However, this probably requires the use of modern gettext
+	  implementations. Use of --with-included-gettext during configure
+	  time might be required.
+	* Added a japanese message catalog kindly provided by
+	  Hatuka*nezumi <nezumi@jca.apc.org>. This also provoked the
+	  changes to the singular/plural stuff outlined above.
+	* Allow for LDAP URI support a la the patches by "¡rp·d,
+	  Magos·nyi" <mag@bunuel.tii.matav.hu> and Szalay Ferenc and
+	  previously by Albrecht Dreﬂ <adress@idsystems-ag.de> + lots of
+	  UI improvements in this matter by me. Includes necessary
+	  configure test.
+2002-07-15 Peter Stamfest <peter@stamfest.at>
+	* Added a work around for strange behaviour reported by
+	  gwu@acm.org when changing the rdn of an object where the
+	  attribute named in the rdn does not exist with the named
+	  value. This caused the object itself to be deleted.
+2002-07-13 Peter Stamfest <peter@stamfest.at>
+	* Added a couple of features:
+	  + The attribute popup menu allows to view schema information
+	    for the attribute now.
+	  + A new entry in the popup menu of a search result allow to find
+	    the object in a browser window. This allows to enter objects
+	    into the browse tree that might not be found otherwise, eg. 
+	    because of a sizelimit. From that entry, the tree below it can
+	    be browsed.
+	  + The base DN combobox in search tabs can be changed now. This
+	    is good for searches where one needs a different base.  See
+	    http://www.ldap.research.netsol.com/ldapsearch.html where this
+	    can be useful.
+2002-07-12 Peter Stamfest <peter@stamfest.at>
+	* Properly deal with binary data when switching to/from display
+	  types based on widgets derived from GtkEditable
+	* Basic referral support - at least we see them now.	
+2002-07-09 Peter Stamfest <peter@stamfest.at>
+	* Added the dt_time displaytype to handle generalizedTime attributes.
+	* Added the change-displaytype-on-the-fly feature. Stability fixes
+	  still required
+	* Added more error information when updating an object and something 
+	  goes wrong.
+2002-07-05 Peter Stamfest <peter@stamfest.at>
+	* Bumped version to 0.6.0
+2002-07-03 Peter Stamfest <peter@stamfest.at>
+	* Added a lot of TODOs and made the TODO list a ROADMAP as well
+	* More translatable strings
+	* New german translations
+	* Passwords will not be shown in clear-text anymore (though they
+	  still are stored as clear-text in .gq). This has been brought up
+	  several times and I "solved" the problem of not showing the
+	  password but storing it in clear text by adding another pop-up
+	  warning telling that passwords are stored in clear-text. The
+	  feature was added to allow the use of gq even in those
+	  situations where somebody can glance over ones shoulder... Asked
+	  for by Jacek Konieczny <jajcus@bnet.pl> who also contributed a
+	  patch, but I solved it differently.
+2002-06-27 Peter Stamfest <peter@stamfest.at>
+	* Fixed a bug related to the schema browser when not caching a
+	  connection. If not caching a connection, schema information gets
+	  deleted whenever the connection gets closed (ie. after almost
+	  any operation done by the user). The schema browser would access
+	  this cleared information (that is freed memory) which would
+	  crash gq. Bug reported by Andreas Hasenack <andreas@conectiva.com.br>
+	* More README stuff regarding required software to build gq
+	* Fixed off-by-one certificate and CRL version number (Bernhard
+	  Reiter <bernhard@intevation.de>)
+	* Added possibility to show source-file and line-number where an
+	  error occurred
+	* Reordered the gettext init stuff trying to compensate for a
+	  non-standard gq locale directory and still having access to the
+	  character encoding for the chosen locale.
+	* Improved error reporting for LDAP related errors. This will be a
+	  target for further improvement.
+2002-06-25 Peter Stamfest <peter@stamfest.at>
+	* Fixed a problem (reusing freed memory) causing crashes when
+	  connection caching is turned off. Problem pointed out by Stephan
+	  Duehr <stephand@suse.de>
+2002-06-20 Peter Stamfest <peter@stamfest.at>
+	* Kerberos compile fixes (first attempt) by Andreas Hasenack 
+	  <andreas@conectiva.com.br>
+	* Fixes in the browse tree causing a core dump due to mixing object
+	  classes in the per-node data structures.
+	* Better error messages (including source line numbers for debugging)
+2002-06-19 Peter Stamfest <peter@stamfest.at>
+	* gq-0.6.0beta2
+2002-06-18 Peter Stamfest <peter@stamfest.at>
+	* Fixed some possible NULL pointer derefs causing crashes. Fixed by 
+	  Bernhard Reiter <bernhard@intevation.de>
+	* Added some more diagnostics when exporting to LDIF - need to do
+	  this for _a lot_ of other codepaths to (ie. whenever we do some
+	  LDAP operation). Currently we test for LDAP_SUCCESS and
+	  LDAP_SERVER_DOWN only, but the "else" is missing!!! A definite
+	  TODO for 1.0 - pointed out by Bernhard Reiter
+	  <bernhard@intevation.de>. What a shame...
+	* Took care of a lot of potential buffer overflows found by flawfinder.
+	* gq should compile and work with OpenLDAP 2.1.x (at least for x>=2)
+	  ldap_explode_dn is deprecated in 2.1 (and the new version of this
+	  function behaves differently than the old one) thus I wrote a 
+	  replacement for it using ldap_str2dn (if available).
+	* Updated the SPEC file to point to SF now for the source code. Also
+	  added README.NLS to the %doc files
+2002-06-17 Peter Stamfest <peter@stamfest.at>
+	* Fixed the last remaining (known-of) compile-time warning present
+	  with some libc versions by finally using the iconv related stuff
+	  already tested by the configure script. Now Bert will finally be
+	  able to compile without warnings again!
+2002-06-15 Peter Stamfest <peter@stamfest.at>
+	* The preferences window is now user resizable. This allows users
+	  to use large fonts without the result that parts of the
+	  preferences are hidden. This fixes a bug report in some
+	  bugtracker of some linux distribution (I forgot which).
+	* The GQ_CODESET now is dynamic. It defaults to ISO-8859-1 but is
+	  set from the locale information. Eg. using LC_CTYPE=cs_CZ
+	  switches to the correct codeset for czech (ISO-8859-2, in that
+	  case). Thanks to Kristof Petr <Petr@Kristof.CZ> for bringing the
+	  problem to my attention. This may also make yesterdays fix partly 
+	  obsolete.
+	* Disabled Bert's experimental template default mechanism. It is not
+	  well enough incorporated into the entire thing. It should also be
+	  better integrated with the DISPLAYTYPE system.
+2002-06-14 Peter Stamfest <peter@stamfest.at>
+	* As it is with beta releases, a lot of bugs have shown up. Some
+	  enhancements were done as well...
+	* Fixed a bug causing crashes or other undesired behaviour for
+	  servers with multiple suffixes.
+	* Fixed a Solaris problem wrt the naming of the ISO-8859-1 codeset
+	  in iconv_open (reported by Anthony <adean@microcenter.com>) and 
+	  we generally defend agains iconv_open problems now.
+	* Fixed problems when updating an object after it has been updated
+	  before
+	* Incorporated minor fixes I found on the net (bug report systems of 
+	  various linux distributions)
+	* Allow for not fully specified objectClass hierarchies - implicitly
+	  add attributes from superior classes when building the formlist
+2002-06-13 Peter Stamfest <peter@stamfest.at>
+	* gq-0.6.0beta1
+2002-06-12 Peter Stamfest <peter@stamfest.at>
+	* Bert Vermeulen <bert@biot.com> is about to transfer maintainership
+	  of gq to Peter Stamfest <peter@stamfest.at>
+2002-06-11 Peter Stamfest <peter@stamfest.at>
+	* Added the DISPLAYTYPE_CRL displaytype to view X509 certificate
+	  revocation lists
+2002-06-09 Peter Stamfest <peter@stamfest.at>
+	* Added the DISPLAYTYPE_CERT to view X509 certificates!
+	* Made the Refresh button in browse windows work.
+	* Minor code cleanups
+2002-06-06 Peter Stamfest <peter@stamfest.at>
+	* Improved visual behaviour of drag-and-drop and copy/paste
+	  operations
+2002-06-04 Peter Stamfest <peter@stamfest.at>
+	* Tons of memory leaks fixed all over the place during a
+	  "fix-those-bloody-memory-leaks" session. Added some debug stuff
+	  to be turned on through compilation with -DMEMDEBUG when using
+	  glibc: On stdout memory usage gets reported continously.
+2002-06-01 Peter Stamfest <peter@stamfest.at>
+	* Replaced browse mode - no longer have a parallel GNode based tree
+	  along the GtkCTree we would have to take care of. This simplifies
+	  things a lot. This meant a huge cleanup of a lot of brwsing related
+	  code
+	* A _lot_ of memory leaks were fixed during the rewrite of browse mode
+	* Exporting from the browser does not first prepare the entire
+	  LDIF in memory but directly writes it to disk. This allows to
+	  export very large LDAP trees
+	* Fixed nasty bugs causing erratic crashes due to the usage of already
+	  freed memory
+	* Browse mode data related to the tree entries is now stored in an OO
+	  fashion, considerably simplifying a lot of things
+2002-04-25 Peter Stamfest <peter@stamfest.at>
+	* Added support for I18N
+	* Added german translations
+	* The popup menu in the search window now behaves like the 
+	  equivalent popup menus in other mode tabs
+2002-04-21 Bert Vermeulen <bert@biot.com>
+	* Added SASL support (Maurice Massar <massar@unix-ag.uni-kl.de>)
+	* Filters selected from the menubar now execute immediately
+2002-04-21 Peter Stamfest <peter@stamfest.at>
+	* Recognize single-valued attributes and not show the "more"
+	  button for them
+	* Make gq fall back to LDAP v2 if there are problems when trying
+	  to use LDAP v3. This might happen when talking to an OpenLDAP
+	  1.2 server when gq is build with OpenLDAP 2
+	* Make the preferences window bigger to be able to see all tabs.
+2002-04-15 Peter Stamfest <peter@stamfest.at>
+	* Added Drag'n'drop support to the browse tree (EXPERIMENTAL)
+	  This works cross-server!
+	* Added Copy/Paste support to the browse tree (EXPERIMENTAL)
+ 	  This allows to copy an object or a whole subtree and pasting it
+	  somewhere else into the browse tree. If pasting into an
+	  application that requires text to be pasted, the copied objects
+	  get pasted in LDIF format.
+	  This works cross-server!
+	* Improved memory handling, much less memory leaks
+	* Lots of small bugfixes, mostly related to instabilities in
+	  certain circumstances.
+	* Better reflection of changes to objects in the browse tree - but
+	  still not perfect
+2002-04-04 Peter Stamfest <peter@stamfest.at>
+	* Support for addition/removal of objectClass attributes: Now
+	  fields get added/marked for the attributes of such an
+	  added/removed objectClass - implemented using a new DISPLAYTYPE
+	  handler (obsolete attributes get marked by a yellow label)
+	* Almost fully OO style (well, in a way) handling of DISPLAYTYPEs.
+	  dt_jpeg and dt_binary now use the same code for common stuff (
+	  Import/Export, Menu Stuff)
+	* Support for salted SHA and MD5 passwords (SSHA, SMD5) via the 
+	  dt_password DISPLAYTYPE handler
+	* Fixed a bug causing a crash of gq when dragging the mouse in the
+	  CTree in browse mode, However, now the highlighted entry may not
+	  be the visible one (but this is less severe)
+	* Added support for the OpenLDAP client-side query cache. This
+	  must be available in OpenLDAP to have any effect (There is no
+	  way to find out if a given OpenLDAP _really_ supports caching
+	  [at least not on that I know of])
+	* Added support to ask for a bind password on first connect if
+	  configured to do so - this can be turned off on a per-server
+	  basis to allow for anonymous binds
+	* Nested open/close of LDAP connections throughout the code -
+	  makes connection caching do the right thing (AND fixes a crash
+	  due to some new call paths)
+	* Support for aliased attribute OIDs (eg. sn and surname are
+	  recognized to be the same)
+	* Added a "title label" to the browser CTree popup menu
+	* RDN change: bugfixes
+2002-04-01 Peter Stamfest <peter@stamfest.at>
+	* Changed attribute representation from plain NUL-terminated strings 
+	  to GByteArray storage - allows to handle binary data
+	* Added support for LDAP syntaxes (get mapped to DISPLAYTYPEs)
+	* Modularized DISPLAYTYPEs
+	* Added DISPLAYTYPE_BINARY and DISPLAYTYPE_JPEG (yes!)
+	* More useful usage of templates - prefilled dn and objectClass
+	  attributes for simplified addition of new entries
+	* Visual indication of required attribute (blue labels)
+	* Fixed SHA and MD5 encoding problems (should be Base64 encoded)
+	* Added SSHA and SMD5 password crypt schemes
+	* More standard Main-Menu placement
+	* Fixed bug with Base64 encoder
+	* Added random multiple-inclusion #ifndef...#define...#endif
+	  constructs to header files I touched
+2002-03-24
+	* Fixed UTF-8 in search mode, for results display and searches
+	* Schema items with multiple names are now shown in the schema
+	  browser with all names
+2002-03-19
+	* gq-0.5.0
+	* UTF-8 support (Toralf Lund <toralf@kscanners.com>)
+	* compile fix for Tru64 (Sylvain Robitaille <syl@alcor.concordia.ca>)
+	* filter bookmarks
+2002-03-17  Alexander Guy  <a7r@andern.org>
+	* src/filter.c: Added include for <ctype.h>.
+	* src/encode.c (decode_string, encode_string): Wrapped iconv related
+	  variables in HAVE_ICONV_H checks.
+	* ChangeLog: Fixed sloppy linewrap.	
+2002-02-20
+	* Added UTF-8 patch contributed by Toralf Lund <toralf@kscanners.com>
+2001-02-25
+	* Use return value from ldap_search*() properly. This caused a segfault
+	  in search mode when using an invalid filter :-(
+	* Solaris compile fixes: only use liblber when available, and
+	  ldap_rename* when ldap_modrdn2* isn't available.
+2001-02-20
+	gq-0.4.0
+	* got rid of all globals in search, browse and schemabrowse code
+	* all modes now tabbed, yay :-)
+
+2001-01-06  Alexander S. Guy  <a7r@andern.org>
+
+	* src/schema.c (get_server_schema), src/util.c (clear_server_schema):
+	  Fixed	the bug where, every other schema request from a server would
+	  result in the last-resort schema server being queried (say yay for
+	  bitwise operators).
+	* Tweaked the ``Where'd it go?'' message to convey a configuration 
+	  problem (this still sucks, and needs to be fixed).
+	
+	* src/configfile.c (save_config), src/configfile.h: Fixed a bug
+	  regarding cache-connection always being ``on'' at startup.  Added a
+	  DEFAULT_ENABLETLS #define, and started using that to determine if
+	  the ``TLS enable'' configuration should be saved.
+
+2000-12-31  Alexander Guy  <a7r@andern.org>
+	* src/common.h, src/configfile.c, src/configfile.h, src/prefs.c: Added
+	  the proper GUI and config file elements for initial TLS support
+	  in GQ.
+	* src/util.c (open_connection): Added basic support for TLS over
+	  LDAPv3.
+	* configure.in, acconfig.h: Added support for detecting TLS support in
+	  the LDAP libraries.
+	* README.TLS: New documentation for the status of TLS in GQ.
+	* README: Updated the feature list.
+
+	* configure.in: Added checking for libresolv.  It will now be
+	  automatically included if your platform provides it.  Rearranged
+	  libraries to be added to LIBS from a top down approach, rather
+	  than willy-nilly.
+2000-12-31
+	* added DES crypt, MD5 and SHA-1 support for userPassword fields
+	* cache connections by default for new servers
+2000-12-30
+	* make sure new branches expanded into in browse mode are actually
+	  visible, and scroll if they're not.
+13-Dec-2000
+	gq-0.3.1
+	* hitting return on field when editing submits again (browse mode only)
+	* server is always queried for schema information, schema server now
+	  only used as a last resort schema server
+	* schema caching works properly now
+	* recursive delete from browse mode, with confirmation dialog (Steve
+	  Green <steveg@sharemedia.com>)
+25-Sep-2000
+	gq-0.3.0
+	* schema mode and templates fully integrated in browse mode
+	* complete rewrite of all browse mode new/edit code
+	* compilation fixes for OpenLDAP 2.x
+	* many many bugfixes
+04-May-2000
+	gq-0.2.3
+	* schema browser
+	* template editor
+	* add with template
+        * parser bug fix (Michael Glad <glad@daimi.au.dk>)
+28-May-1999
+	gq-0.2.2
+	* "Use as template" from browse mode actually works now
+	* Refresh button now works after modrdn op from browse mode
+	* fixed bug in browse mode edit when adding new values to
+	  attributes or editing DN, apply button wasn't working
+	  (reported by Borek Lupomesky)
+	* fixed small typo in configure (reported by Johann Wilfling)
+19-May-1999
+	gq-0.2.1
+	* Kerberos support <hensley@merit.edu>
+	* export to LDIF from browse mode
+	* "use as template" from browse mode
+	* delete from browse mode
+	* added license to help menu
+	* various tweaks and bug fixes
+26-Apr-1999
+	gq-0.2.0
+	* various user-interface enhancements
+	* added sorting in browse and search mode (optional)
+	* refresh subtree option in browse mode
+	* number of suffixes per server is now dynamic
+	* now gets suffixes for all backends with OpenLDAP servers
+	* fixed nasty bug in browse mode (MAX_DN_LEN too short)
+	* actually using server->maxentries now
+20-Mar-1999
+	gq-0.1.9
+	* now needs GTK+ 1.1.13 or higher
+	* browse mode
+08-Feb-1999
+	gq-0.1.8
+	* configure fix, builds on solaris now
+	* bugfix for deleting values <Dirk.Vleugels@de.uu.net>
+	* connection caching now optional (default off) -- doesn't work
+	  well on some public LDAP servers
+	* problem when entering new server -- fixed
+01-Feb-1999
+	gq-0.1.7
+	* modrdn functionality
+	* --with-ldap-prefix in configure script
+	* connection caching
+	* support for adding entries (using existing entry as template)
+01-Jan-1999
+	gq-0.1.6
+	* added textbox editing for large entries
+	* updated logo
+09-Dec-1998
+	gq-0.1.5 released.
+	* edit + delete functionality
+12-Nov-1998
+	gq-0.1.3 release.
+	* multiple servers
+	* search options
+	* double-click on displayed entry
+	* XML-style config file.
+15-Oct-1998
+	First public release, v0.1

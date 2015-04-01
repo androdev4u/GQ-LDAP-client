@@ -1,0 +1,33 @@
+2006-09-14  Sven Herzberg  <herzi@gnome-de.org>
+
+	* ja.po: updated Japanese translation by Hatuka*nezumi - IKEDA Soji
+
+2006-09-07  Sven Herzberg  <herzi@gnome-de.org>
+
+	* de.po: updated German translation
+
+2006-08-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* POTFILES.in: updated for GQ 1.1.0
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* POTFILES.in: updated by IKEDA Soji
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makevars: quote the msgid bug URI
+	* cs.po,
+	* de.po,
+	* zh_CN.po: set the language team to "unknown" to pass compilation
+	* ja.po: updated version from IKEDA Soji
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* .cvsignore: silence
+	* Makevars: added
+
+2006-04-05  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.in.in: removed automatically generated file
+

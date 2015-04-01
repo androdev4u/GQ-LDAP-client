@@ -1,0 +1,26 @@
+Fixed version for newer systems.
+
+Needs old version of openssl 0.9.x .
+
+	gq fixed compiling
+
+
+For gentoo use this to install.
+Uninstall dev-libs/openssl-1.x .
+
+server gq-1.2.3_fixed_old # qlist -ICv openssl
+dev-libs/openssl-0.9.8z_p6
+dev-libs/openssl-1.0.2a
+dev-python/pyopenssl-0.14
+
+
+emerge -C dev-libs/openssl-1.0.2a
+
+./configure
+make
+make install
+
+emerge  =dev-libs/openssl-1.0.2a
+
+by Joerg Neikes
+

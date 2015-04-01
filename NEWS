@@ -1,0 +1,226 @@
+GQ 1.2.3
+========
+
+  Bug fixes:
+   * fixed simple bind with a patch from Pawel Salek (fixes 1753419)
+
+GQ 1.2.2
+========
+
+  Bug fixes:
+   * fixed a crash when loading the state file on BSD systems (patch from the
+     NetBSD people)
+   * make command line argument handling more robust
+
+GQ 1.2.1
+========
+
+  Build Improvements
+   * fixed a bash expression
+
+GQ 1.2.0
+========
+
+ No changes since 1.1.3
+
+GQ 1.1.3
+========
+
+  User-visible Improvements
+   * improved working with the server list preferences
+  Build Improvements
+   * fixed RPM build with additional locales
+   * adjusted gnome keyring dependency for gnome_keyring_create_item_sync()
+   * fixed building with libgcrypt
+
+GQ 1.1.2
+========
+
+  New Features for the end user
+   * Fixed a crasher (bug #1551653)
+   * set GETTEXT_PACKAGE (bug #1553044)
+  Improvements to the build system
+   * complete and pretty-print configuration options (bug #1551748)
+
+GQ 1.1.1
+========
+
+  New features for the end user
+   * support password hashing even without libcrypto (using libgcrypt now)
+   * fixed the menu item to actually appear in the GNOME menu
+   * time selection works with negative time zone offsets (bug 1548780)
+   * GQ doesn't use GCRYPT_LIBS as it should (bug 1551071)
+  Improvements to internal structures
+   * removed lots of dead code
+   * moved more code into the generic tree interface
+   * removed all custom type implementations, use GObject
+
+GQ 1.1.0
+========
+
+ * several build improvements
+   * don't use the internal intl build
+   * fixed ICONV_CONST usage
+   * dropped GTK+ 1.2 code
+   * define LDAP_DEPRECATED only if necessary
+   * use a LINGUAS file
+   * use GOption for command line arguments
+   * use GLib i18n handling
+   * use lots of functions from GLib
+   * display types are used with GObject
+ * improved the internal server list handling
+ * improved the user interface
+   * menu item is not right-aligned anymore (follow Gnome HIG)
+   * new layout for the login dialog
+   * updated scrolling policy
+ * use Gnome Keyring for storing the password
+ * support SASL authentication without password
+
+GQ 1.0.0
+========
+
+ * if there are no supplied base DNs, add the configured one to the tree
+ * sort DN nodes
+ * fix the about dialog
+
+GQ 1.0 RC 1
+===========
+
+ * fix the object class browser to open all attributes on double-click
+ * made about text configurable
+ * build correctly with OpenLDAP 2.1 and 2.2
+ * SASL authentication fixed
+ * general code improvements (warnings, for loops, etc.)
+
+GQ 1.0 Beta 2
+=============
+
+ * started tree abstraction to make the final GtkTreeView port easier
+ * updated build framework
+ * don't allow building with new GLib and old GTK+
+ * add only compile flags which are understood
+ * install gq.desktop to the new right folder
+ * disable fatal warnings by default
+ * don't automatically select the DN entry field
+ * compile without warnings
+
+Release Notes for gq - THE OpenSource LDAP browser
+
+Version 0.7.0beta2
+
+* New browse-tree popup menu item - "Search below"
+* Adding/removing/changing a server definition in the server preferences 
+  adds/removes/changes corresponding entries in the browse tree. 
+* gq now correctly handles special characters in the bind DN, the bind
+  password and the search base in search mode.
+* Introduction of the language pack - The main distribution does no longer 
+  contain message catalogs. Instead: Download a language pack and follow
+  the instructions contained in README.langpack
+* Binary data presented in text-form now is shown using a fixed font.
+* Many bugfixes
+
+Version 0.7.0beta1
+
+User visible changes:
+* There is a popup menu when right-clicking on an attribute label (except
+  for "dn" and "objectClass". It allows to view schema information and it
+  allows to change how the attribute should be presented visually (the
+  "display type", in lack of a better name)
+* Added a new display type for the generalizedTime LDAP syntax. It allows
+  to choose the day using a calendar. Very convenient if one has to enter
+  such timestamps. Actually, this syntax isn't used very often, in my
+  stock openldap servers this syntax only gets used for the birthDay
+  attribute of class "personalInformation". I use this syntax in my own
+  objectClasses though (eg. implementing LDAP based  vacation e-mail
+  replies).
+* When turing on "show referrals" in the serer preferences the "ref"
+  attribute is shown. This is currently mainly useful to get an impression
+  of how references ought to work, this feature will probably change in
+  the future.
+* Password get stored encoded (NOT encrypted) in the configuration file.
+  This is just to hide clear-text passwords from the occasional view
+  others may glimpse if you open the .gq file in a text editor (even if
+  there is no reason to do so)
+* Due to password encoding the confgiuration file syntax was changed in a
+  backwards-incompatible way!! gq asks if it should upgrade the
+  configuration upon start and refuses to change the configuration later
+  on if one does not upgrade.
+* A new entry in the popup menu of a search result (in a search
+  tab) allows to find the object in a browser window. This allows to enter
+  objects into the browse tree that might not be found otherwise, eg.
+  because of a sizelimit.  From that entry, the tree below it can be
+  browsed.
+* The base DN combobox in search tabs can be changed now. This is good for
+  searches where one needs a different base.  See
+  http://www.ldap.research.netsol.com/ldapsearch.html where this can be
+  useful.
+* Japanese L10N, for those who need it, better support for languages
+  having different needs for embedding numbers in messages than
+  english/german.
+* LDAP URI support instead of hostname + port, this also allows to used
+  ldaps:// URIs (that is LDAP over SSL, which is different to STARTTLS)
+* The "Add as new" button in the browser
+* Allow for the use of the "extensibleObject" class by allowing to add
+  attributes to such an object.
+* Allow to hide empty attributes from the browser.
+* "Beautified" some dialogs
+* Added tooltips
+
+
+Not directly visible changes:
+* Bugfixes (some of them were serious, avoid a lot of core-dumping)
+* Improvements in LDAP error handling
+* gq takes a command-line option "-d" if built with debug support:
+   -d 1 shows error numbers in error messages.
+   -d 4 constantly displays memory usage on standard out (better if it is
+        a tty, actually)
+
+2002-09-29:
+Many new features:
+* new display type:
+  + dt_time - allows dates/times to be entered using a calendar
+* Passwords get encoded (NOT encrypted) in the configuration file. This 
+  requires changes to the configuration file that make the configuration file 
+  unreadable for older versions. Back up your .gq configuration file before
+  running 0.7.0 for the first time.
+* change how to display data on the fly using a new popup-menu for the 
+  attribute-names in browse mode.
+* Search mode: Popup menu for search results allows to enter found
+  objects into the browse-mode tree. This allows to see more of the
+  object tree (in tree form) than would be allowed due to size-limits
+* Search mode: The base DN for the search is now editable
+* Allow for LDAP URIs to be used instead of Host/Port - this allows
+  ldaps:// URIs
+* I18N: japanese message catalog by kindly provided by
+  Hatuka*nezumi <nezumi@jca.apc.org>. 
+* I18N: Proper support for number-translations as implemented by GNU gettext.
+* Browser: Allows to hide empty attributes
+* Browser: Support for the 'extensibleObject' obejctClass.
+* Browser: "Add as new" Button to quickly copy slightly changed objects
+* Lots of bug fixes
+* Lots of new bugs
+
+2002-06-13:
+GQ has a lot of new features, including
+* SASL support (Maurice Massar <massar@unix-ag.uni-kl.de>)
+* Correct(!) support for userPassword including SSHA and SMD5 encryption.
+* I18N support (if you want to contribute please read README.NLS) including
+  a rough german translation
+* Support for graphical jpegPhoto display (requires gdk-pixbuf to work)
+* Support to to view X509 certificates and X509 certificate revocation 
+  lists (CRLs)
+* Drag and drop support in browse mode (must be enabled using
+  --enable-browser-dnd), this feature is possibly dangerous if used without
+  thought, but it is GREAT if you need it ;-)
+* Supports the OpenLDAP experimental client cache. (must be enabled using
+  --enable-cache)
+* Lots of other small bugfixes/enhancements
+
+2002-06-12:
+Starting after version 0.5.0 Peter Stamfest <peter@stamfest.at> is 
+the new maintainer of gq.
+
+I would like to thank Bert Vermeulen for his trust in me, after all
+this is his very own project.
+
+peter

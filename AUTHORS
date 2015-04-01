@@ -1,0 +1,38 @@
+Bert Vermeulen <bert@biot.com>
+- started it all and maintained gq from 1998 until June 2002.
+
+Peter Stamfest <peter@stamfest.at>
+- More OO-style DISPLAYTYPE handlers
+- userPassword fixes (encoding, new SMD5 and SSHA encodings)
+- Binary attributes, jpegPhoto support
+- Drag-and-drop, copy/paste support
+- Memory handling cleanups
+- Cached connection fixes
+- Many small improvements/fixes all over gq
+- Even more binary attributes (those requiring ";binary")
+- X509 support (Certificates, CRL)
+- Took over maintainership in June 2002
+
+Sven Herzberg
+- took over GQ in 2006
+
+Thanks go to (patches and/or testing of patches, translations):
+  
+  Andreas Hasenack <andreas@conectiva.com.br>
+  Árpád, Magosányi <mag@bunuel.tii.matav.hu>
+  Bernhard Reiter <bernhard@intevation.de>
+  Cord Beermann <cord@Wunder-Nett.org>
+  Dave Horsfall <daveh@ci.com.au>
+  Dmitry Chernyak <dmi@inkasbank.ru>
+  gwu@acm.org
+  Hatuka*nezumi <nezumi@jca.apc.org>           Japanese translation
+  ken restivo <ken@246gt.com>
+  Oliver Jowett <oliver@opencloud.com>
+  Simon Matter <simon.matter@ch.sauter-bc.com>
+  Stephan Duehr <stephand@suse.de>
+  Tomas Dobrovolny <tomasdobrovolny@atlas.cz>
+  hleil liu <hleil@yahoo.com.cn>               Chinese translation
+  Philipp Matthias Hahn
+
+... and many more (if your namme is missing, and your code went into
+    gq speak up)

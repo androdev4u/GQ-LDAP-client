@@ -1,0 +1,460 @@
+dnl Process this file with autoconf to produce a configure script.
+
+AC_INIT(src/gq.c)
+AM_INIT_AUTOMAKE(gq, 1.2.3)
+AM_ACLOCAL_INCLUDE(macros)
+
+LANGPACK_VERSION=1
+AC_SUBST(LANGPACK_VERSION)
+
+AM_CONFIG_HEADER(config.h)
+
+AH_TOP([
+#ifndef GQ_CONFIG_H_INCLUDE
+#define GQ_CONFIG_H_INCLUDE
+])
+
+AH_BOTTOM([
+
+/* take care to turn off assertions in case debugging is disabled */
+#ifndef DEBUG
+#define NDEBUG
+#endif
+
+#endif /* GQ_CONFIG_H_INCLUDE */
+])
+
+AC_PROG_CC
+AC_PROG_CPP
+AC_ISC_POSIX
+IT_PROG_INTLTOOL([0.35.0])
+
+AC_PROG_MAKE_SET
+
+DISTCHECK_CONFIGURE_FLAGS="--disable-update-mimedb --enable-browser-dnd"
+DISTCHECK_CONFIGURE_FLAGS="$DISTCHECK_CONFIGURE_FLAGS --enable-werror"
+AC_SUBST(DISTCHECK_CONFIGURE_FLAGS)
+
+dnl  ---------------------
+dnl | module dependencies |---------------------------------------------------
+dnl  ---------------------
+
+AC_ARG_WITH(keyring-api,
+	    AC_HELP_STRING([--with-keyring-api=API],
+		    	   [specify the keyring API that should be used: gnome, apple]),
+	    ,[with_keyring_api=gnome])
+
+case "$with_keyring_api" in
+"gnome")
+	;;
+"apple")
+	AC_MSG_ERROR([*** Apple Keychain Support needs to be added: ***]
+[*** http://sourceforge.net/tracker/index.php?func=detail&aid=1547154&group_id=3805&atid=103805 ***])
+	;;
+*)
+	AC_MSG_ERROR([Unknown keyring API "$with_keyring_api"])
+	;;
+esac
+
+case "$with_keyring_api" in
+"gnome")
+	gnome_keyring="gnome-keyring-1 >= 0.4.4"
+	;;
+"apple")
+	gnome_keyring=""
+	dnl FIXME check for GOBJC
+	dnl FIXME check for usable Apple Keychain
+	AS_PROG_OBJC
+	;;
+esac
+
+AM_CONDITIONAL(WITH_GNOME_KEYRING,  test "x$with_keyring_api" = "xgnome")
+AM_CONDITIONAL(WITH_APPLE_KEYCHAIN, test "x$with_keyring_api" = "xapple")
+_AM_DEPENDENCIES([OBJC])
+
+PKG_CHECK_MODULES(GQ,[glib-2.0 >= 2.6
+		      gtk+-2.0 >= 2.6
+		      $gnome_keyring
+		      libglade-2.0
+		      libxml-2.0])
+
+AC_MSG_CHECKING([for glib-mkenums])
+GLIB_MKENUMS=`pkg-config --variable=glib_mkenums glib-2.0`
+AC_SUBST(GLIB_MKENUMS)
+AC_MSG_RESULT($GLIB_MKENUMS)
+
+dnl  ------------------------
+dnl | mime data installation |------------------------------------------------
+dnl  ------------------------
+
+AC_ARG_ENABLE(update-mimedb,
+	      AC_HELP_STRING([--disable-update-mimedb],
+			     [disable the update-mime-database after install [default=no]]),,
+	      enable_update_mimedb=yes)
+
+if test x$enable_update_mimedb = xyes; then
+	AC_CHECK_PROG(enable_update_mimedb,update-mime-database,yes,no)
+fi
+
+AM_CONDITIONAL(ENABLE_UPDATE_MIMEDB, test x$enable_update_mimedb = xyes)
+
+dnl --------------------------------------------------------------------------
+
+DEBUG=1
+AC_ARG_ENABLE(debugging,
+	      AC_HELP_STRING([--disable-debugging],[Disables the -d commandline flag to set debug flags and turns off assertions]),
+	    [ DEBUG= ]
+)
+
+if test "$DEBUG" = "1" ; then
+	AC_DEFINE(DEBUG,1,[Define if you want to enable some debugging features])
+	AC_CHECK_FUNCS(backtrace backtrace_symbols)
+fi
+
+AC_ARG_WITH(ldap-prefix,
+	    AC_HELP_STRING([--with-ldap-prefix=PFX],[Prefix where LDAP libs and headers are installed]),
+	    [
+	     LDFLAGS="$LDFLAGS -L$with_ldap_prefix/lib";
+	     CPPFLAGS="$CPPFLAGS -I$with_ldap_prefix/include"
+	    ]
+)
+
+
+AC_CHECK_LIB(resolv, res_gethostbyaddr, [LIBS="-lresolv $LIBS"])
+
+AC_ARG_WITH(ssl-prefix,
+	    AC_HELP_STRING([--with-ssl-prefix=PFX],[Prefix where OpenSSL is installed]))
+
+for ssldir in $with_ssl_prefix /usr/local/ssl /usr/local/openssl ; do
+	if test -d "$ssldir" ; then
+		LDFLAGS="$LDFLAGS -L$ssldir/lib"
+		CPPFLAGS="$CPPFLAGS -I$ssldir/include"
+		break
+	fi
+done
+
+AC_CHECK_HEADERS([ldap.h],,AC_MSG_ERROR("The (Open)LDAP development environment could not be found"))
+
+AC_CHECK_LIB(lber, ber_alloc,
+	     [
+	      AC_DEFINE(HAVE_LLBER, "-llber",
+			[Define if you have a liblber containing ber_alloc et.al.])
+	      LIBS="$LIBS -llber"
+	     ]
+)
+
+AC_CHECK_LIB(ldap, ldap_simple_bind,
+	     [LIBS="-lldap $HAVE_LLBER $LIBS"],
+	     AC_MSG_ERROR(Cannot find libldap),
+	     $HAVE_LLBER
+)
+
+AC_CACHE_CHECK([OpenLDAP version], gq_cv_OpenLDAP_version,
+	       [
+	        AC_EGREP_CPP(gq_can_use_openldap2,
+			     [
+				#include <ldap.h>
+				#ifdef LDAP_VENDOR_VERSION
+				    #if LDAP_VENDOR_VERSION >= 20000
+			        	 gq_can_use_openldap2
+				    #endif
+				#endif
+			     ],
+			     [gq_cv_OpenLDAP_version=2],
+			     [gq_cv_OpenLDAP_version=1.2]
+	       )
+	      ]
+)
+
+if test "$gq_cv_OpenLDAP_version" = 2; then
+	AC_DEFINE(HAVE_OPENLDAP2,1,[Define if you have OpenLDAP 2.x])
+	AC_DEFINE(FOUND_OPENLDAP_VERSION, 2, [Set to 1.2 or 2])
+fi
+
+if test "$gq_cv_OpenLDAP_version" = 1.2; then
+	AC_DEFINE(HAVE_OPENLDAP12,1,[Define if you have OpenLDAP 1.2])
+	AC_DEFINE(FOUND_OPENLDAP_VERSION, 1.2)
+fi
+
+AC_CACHE_CHECK([whether OpenLDAP needs LDAP_DEPRECATED], gq_cv_ldap_deprecated,
+	       [AC_EGREP_CPP(ldap_explode_dn,
+		             [#include <ldap.h>
+			     ],
+			     [gq_cv_ldap_deprecated=no],
+			     [gq_cv_ldap_deprecated=yes])])
+if test "x$gq_cv_ldap_deprecated" = "xyes"; then
+	AC_DEFINE(LDAP_DEPRECATED, 1, [allow GQ to use deprecated OpenLDAP API])
+fi
+
+gq_have_tls=
+AC_CHECK_LIB(ldap, ldap_start_tls_s,
+	     [
+	      AC_DEFINE(HAVE_TLS,1,[Define if you want TLS support in gq])
+	      gq_have_tls=1
+	     ]
+)
+
+dnl  ---------
+dnl | hashing |---------------------------------------------------------------
+dnl  ---------
+
+dnl --- libgcrypt ---
+
+AM_PATH_LIBGCRYPT(1.2.0, [gq_have_gcrypt=yes], [gq_have_gcrypt=no])
+if test "x$gq_have_gcrypt" = "xyes"; then
+	AC_DEFINE(HAVE_LIBGCRYPT, 1, [Define if you have libgcrypt])
+fi
+
+dnl --- libcrypto ---
+
+PKG_CHECK_MODULES(CRYPTO,[
+	libcrypto
+	],[gq_have_crypto=yes],[gq_have_crypto=no
+	AC_MSG_RESULT([no])])
+if test "x$gq_have_crypto" = "xyes"; then
+	AC_DEFINE(HAVE_LIBCRYPTO, 1, [Define if you have libcrypto])
+else
+	CRYPTO_LIBS=""
+	AC_SUBST(CRYPTO_LIBS)
+fi
+
+dnl --- summary ---
+if ( test "x$gq_have_gcrypt" = "xyes" -o "x$gq_have_crypto" = "xyes" ); then
+	gq_have_crypt=yes
+else
+	gq_have_crypt=no
+fi
+
+dnl --------------------------------------------------------------------------
+
+dnl do not check for OpenSSL if we won't need it because OpenLDAP does not
+dnl support TLS... peter
+
+if test "$gq_have_tls" = 1; then
+	AC_CHECK_LIB(ssl, SSL_new,
+		     [LIBS="-lssl $LIBS"]
+	)
+fi
+
+AC_CHECK_FUNCS(ldap_str2objectclass ldap_memfree ldap_rename ldap_str2dn \
+	       ldap_initialize \
+	       iswspace snprintf \
+	       g_snprintf)
+
+AC_ARG_WITH(kerberos-prefix,
+	    AC_HELP_STRING([--with-kerberos-prefix=PFX], [Prefix where Kerberos is installed]),
+	    [
+	     LIBS="-L$with_kerberos_prefix/lib -lkrb5 -ldes425 $LIBS"
+	     AC_DEFINE(HAVE_KERBEROS,1,[Define if you have Kerberos installed])
+	     HAVE_KERBEROS=1
+	    ]
+)
+
+AC_CHECK_HEADERS([sasl.h],
+    [AC_DEFINE(HAVE_SASL,1,[Define if you have SASL])],
+    [AC_CHECK_HEADERS([sasl/sasl.h], [AC_DEFINE(HAVE_SASL,1,[Define if you have SASL])])]
+)
+
+if test "x$ac_cv_header_sasl_h" = "xyes" -o "x$ac_cv_header_sasl_sasl_h" = "xyes"; then
+    SASL=1
+fi
+
+GC_TIMEZONE()
+
+AC_CHECK_HEADERS(iconv.h, HAVE_ICONV_H=yes)
+
+if test "x$HAVE_ICONV_H" = "xyes"; then
+	AC_CHECK_LIB(iconv, iconv_open, [LIBS="-liconv $LIBS"])
+	dnl HAVE_ICONV needed by intl/
+	AC_DEFINE(HAVE_ICONV,1,[Define if you have iconv available])
+
+	dnl check for proper naming of ISO-8859-1
+
+	AC_CACHE_CHECK([proper naming of ISO-8859-1 for iconv],
+		       gq_cv_iso_8859_1_naming,
+		       [AC_TRY_RUN([
+					#include <iconv.h>
+					int main(int argc, char **argv) {
+					    iconv_t conv = iconv_open("ISO8859-1", 
+								      "UTF-8");
+					    if (conv != (iconv_t) -1) {
+						return 0;
+					    }
+					    return 1;
+					}
+				   ],
+				   gq_cv_iso_8859_1_naming=ISO8859-1,
+				   ,
+				   gq_cv_iso_8859_1_naming=ISO-8859-1
+				   )
+
+			AC_TRY_RUN([
+					#include <iconv.h>
+					int main(int argc, char **argv) {
+					    iconv_t conv = iconv_open("ISO-8859-1", 
+								      "UTF-8");
+					    if (conv != (iconv_t) -1) {
+						return 0;
+					    }
+					    return 1;
+					}
+				   ],
+				   gq_cv_iso_8859_1_naming=ISO-8859-1,
+				   ,
+				   gq_cv_iso_8859_1_naming=ISO-8859-1
+				   )
+			]
+		)
+	   
+	   AC_DEFINE_UNQUOTED(ISO8859_1, "$gq_cv_iso_8859_1_naming",
+			      [Set to proper naming of ISO 8859-1 encoding for your iconv])
+fi
+
+AC_ARG_WITH(default-codeset,
+	    AC_HELP_STRING([--with-default-codeset=codeset],
+			  [The default codeset to use if auto-detection during runtime does not work (ie. when setting LC_ALL or LC_CTYPE or LANG does not work).]),
+	    [
+	     AC_DEFINE_UNQUOTED(DEFAULT_CODESET, "$with_default_codeset", 
+				[Set to the default codeset you want to use])
+	    ]
+)
+
+dnl debugging aids
+
+AC_CHECK_FUNC(mallinfo, 
+	      AC_DEFINE(HAVE_MALLINFO,1,
+			[Define if you have struct mallinfo]))
+AC_CHECK_FUNC(mcheck,   
+	      AC_DEFINE(HAVE_MCHECK,1,[Define if you have mcheck]))
+
+
+AC_ARG_ENABLE(cache, 
+	      AC_HELP_STRING([--enable-cache],
+		             [enable possibility to use OpenLDAP client-side caching (must be enabled in OpenLDAP to work)]),
+	      [
+		AC_CHECK_FUNCS(ldap_enable_cache, 
+			       [
+				 AC_DEFINE(HAVE_LDAP_CLIENT_CACHE,1,
+					   [Define if you want to enable client side LDAP caching in gq])
+			     	 HAVE_OLCACHE=1
+			       ]
+	       )
+	      ]
+)
+AC_ARG_ENABLE(browser-dnd,
+	      AC_HELP_STRING([--enable-browser-dnd],
+		      	     [enable possibility to use drag-and-drop to move entries in the browser tree]),
+	      [AC_DEFINE(BROWSER_DND,1,
+			 [Define if you want to have Drag and Drop support in gq])]
+)
+
+dnl  ------------------------
+dnl | compiler warning flags |------------------------------------------------
+dnl  ------------------------
+
+gq_cv_compiler_supports_flag() {
+	local SAVE_CFLAGS="$CFLAGS"
+	local has_option=1
+
+	if test -z $1; then
+		return 1
+	fi
+	CFLAGS="$CFLAGS $1"
+	AC_MSG_CHECKING([whether $CC understands $1])
+	AC_TRY_COMPILE([],[],[
+			has_option=0
+			],[])
+	if test "x$has_option" = "x0"; then
+		AC_MSG_RESULT(yes)
+	else
+		AC_MSG_RESULT(no)
+	fi
+	CFLAGS="$SAVE_CFLAGS"
+	return $has_option
+}
+
+# a backup of the working CFLAGS
+WARN_CFLAGS=""
+for A in -Wall -W -Wno-unused -Wmissing-declarations -Wcast-align -Wpointer-arith -Wfloat-equal
+do
+	if test -z "`echo "$CFLAGS" | grep -w -- "$A" 2> /dev/null`" ; then
+		gq_cv_compiler_supports_flag "$A"
+		has_flag=$?
+		if test "x$has_flag" = "x0"; then
+			WARN_CFLAGS="$WARN_CFLAGS $A"
+		fi
+		# restore the backup
+	fi
+done
+AC_SUBST(WARN_CFLAGS)
+
+# check whether the compiler supports -Werror
+gq_cv_compiler_supports_flag -Werror
+if test "x$?" = "x0"; then
+	WERROR_CFLAGS="$WERROR_CFLAGS -Werror"
+fi
+AC_SUBST(WERROR_CFLAGS)
+
+# add a configure option to enable -Werror
+gq_cv_enable_werror=1
+AC_ARG_ENABLE(werror,
+		AC_HELP_STRING([--enable-werror],
+			       [Enable building with -Werror (might turn on fatal compile warnings)]),
+		[gq_cv_enable_werror=0])
+AM_CONDITIONAL(WITH_WERROR, test "x$gq_cv_enable_werror" = "x0")
+
+dnl --------------------------------------------------------------------------
+
+dnl  ---------------
+dnl | package paths |---------------------------------------------------------
+dnl  ---------------
+
+HERZI_PACKAGE_PREFIX
+AC_DEFINE_UNQUOTED(PACKAGE_PREFIX, "$PACKAGE_PREFIX",
+		   [the package's prefix])
+
+dnl --------------------------------------------------------------------------
+
+dnl  --------------
+dnl | i18n support |----------------------------------------------------------
+dnl  --------------
+
+dnl languages are added to po/LINGUAS
+HERZI_GETTEXT(gq)
+
+# FIXME: move the --with argument into HERZI_GETTEXT
+localedir="${PACKAGE_PREFIX}/${DATADIRNAME}/locale"
+AC_ARG_WITH(with-localedir,
+	    AC_HELP_STRING([--with-localedir=DIR],
+		           [Where locale data should be stored (or can be found) Please see the README file for more details about this.]))
+
+if test "x$with_localedir" != "x"
+then
+	localedir="$with_localedir"
+fi
+AC_DEFINE_UNQUOTED(LOCALEDIR, "$localedir", [the locale directory, for gettext])
+
+dnl --------------------------------------------------------------------------
+
+AC_OUTPUT([
+	Makefile
+	data/Makefile
+	icons/Makefile
+	pixmaps/Makefile
+	po/Makefile.in
+	src/Makefile
+	test/Makefile
+	gq.spec
+])
+
+echo
+echo    "Keyring API.................... $with_keyring_api"
+echo -n "LDAP Schema support............ " ARG_YESNO($ac_cv_func_ldap_str2objectclass)
+echo -n "TLS support.................... " ARG_YESNO($gq_have_tls)
+echo -n "Encrypted passwords............ " ARG_YESNO($gq_have_crypt)
+echo -n "SASL binds..................... " ARG_YESNO($SASL)
+echo -n "Kerberos binds................. " ARG_YESNO($HAVE_KERBEROS)
+echo -n "Browser Drag and drop.......... " ARG_YESNO($enable_browser_dnd)
+echo -n "OpenLDAP client-side caching... " ARG_YESNO($HAVE_OLCACHE)
+echo -n "Debugging support ............. " ARG_YESNO($DEBUG)
+echo

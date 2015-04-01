@@ -1,0 +1,5 @@
+dt_crl.o: dt_crl.c /usr/include/stdc-predef.h ../config.h
+
+/usr/include/stdc-predef.h:
+
+../config.h:
