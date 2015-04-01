@@ -1,4 +1,4 @@
-diff -Nur src/dt_text.c GQ-LDAP-client_test/src/dt_text.c
+diff -Nur src/dt_text.c src/dt_text.c
 --- src/dt_text.c	2007-05-14 18:26:50.000000000 +0200
 +++ src/dt_text.c	2015-04-01 14:05:48.257636142 +0200
 @@ -65,6 +65,8 @@
