@@ -9,5 +9,5 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Icon=gq
-Categories=Application;Network;GNOME;GTK;LDAP;
+Categories=Network;GNOME;GTK;Database;
 #MimeType=text/x-ldif

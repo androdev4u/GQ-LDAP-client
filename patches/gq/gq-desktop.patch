@@ -1,0 +1,9 @@
+--- gq-1.2.1/data/gq.desktop.in.orig	2006-10-04 16:50:43.000000000 +0200
++++ gq-1.2.1/data/gq.desktop.in	2006-10-09 20:17:16.204099000 +0200
+@@ -9,5 +9,5 @@
+ Terminal=false
+ Type=Application
+ Icon=gq
+-Categories=Application;Network;GNOME;GTK;LDAP;
++Categories=Network;GNOME;GTK;Database;
+ #MimeType=text/x-ldif

@@ -1,0 +1,11 @@
+--- gq-1.0beta1/configure.in.orig	2004-04-25 22:19:17.000000000 +0200
++++ gq-1.0beta1/configure.in	2004-04-25 22:33:32.816350304 +0200
+@@ -360,7 +360,7 @@
+ AC_CHECK_HEADERS(iconv.h, HAVE_ICONV_H=yes)
+ 
+ if test "x$HAVE_ICONV_H" = "xyes"; then
+-	AC_CHECK_LIB(iconv, iconv_open, [LIBS="-liconv $LIBS"])
++	AC_CHECK_FUNC(iconv_open,,[AC_CHECK_LIB(iconv, iconv_open, [LIBS="-liconv $LIBS"])])
+ 	dnl HAVE_ICONV needed by intl/
+ 	AC_DEFINE(HAVE_ICONV,1,[Define if you have iconv available])
+ 
