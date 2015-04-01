@@ -65,6 +65,8 @@ GtkWidget *dt_text_get_widget(int error_context,
     GtkWidget *scrolled;
 
     inputbox = gtk_text_view_new();
+    g_object_set(inputbox,"wrap-mode",GTK_WRAP_WORD)
+    g_object_set(inputbox,"wrap-mode-set",TRUE);
     gtk_widget_show(inputbox);
 
 

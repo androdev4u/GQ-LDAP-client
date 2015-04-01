@@ -90,12 +90,16 @@ const gchar *encode_string(gchar *ldap_string, const gchar *native_string,
      char *out;
      size_t outlen;
      iconv_t conv;
+     const char *g_codeset;
 
      in = (char *) native_string;
      out = ldap_string;
 /*       len = strlen(in); */
      outlen = len * 2 + 1; /* Worst case */
-     conv = iconv_open(LDAP_CODESET, gq_codeset);
+
+     g_get_charset(&g_codeset);
+
+     conv = iconv_open(LDAP_CODESET, g_codeset);
 
      if (conv != (iconv_t) (-1)) {
 	  while(len > 0 && outlen > 0) {

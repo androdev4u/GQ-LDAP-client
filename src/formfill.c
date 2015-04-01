@@ -170,7 +170,7 @@ char *attr_strip(const char *attr)
      char *d = g_utf8_strchr(c, -1, ';'); /* UTF-8: doesn't hurt */
 
      if (d) {
-	  *d = 0;
+	//  *d = 0;
      }
      return c;
 }
