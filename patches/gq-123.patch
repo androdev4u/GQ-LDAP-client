@@ -1,0 +1,33 @@
+--- gq-1.2.3/src/gq-server-list.h	2007-05-14 18:26:50.000000000 +0200
++++ gq-1.2.3_fixed/src/gq-server-list.h	2012-11-13 18:21:03.127691958 +0100
+@@ -26,7 +26,7 @@
+ #ifndef GQ_SERVER_LIST_H
+ #define GQ_SERVER_LIST_H
+ 
+-#include <glib/gmacros.h>
++/* #include <glib/gmacros.h> */
+ #include "gq-server.h" // for GqServer
+ 
+ G_BEGIN_DECLS
+--- gq-1.2.3/src/gq-hash.h	2007-05-14 18:26:51.000000000 +0200
++++ gq-1.2.3_fixed/src/gq-hash.h	2012-11-13 18:23:14.422829038 +0100
+@@ -24,7 +24,7 @@
+ #ifndef GQ_ENCRYPTION_H
+ #define GQ_ENCRYPTION_H
+ 
+-#include <glib/garray.h>
++/* #include <glib/garray.h> */
+ #include "util.h"
+ 
+ G_BEGIN_DECLS
+--- gq-1.2.3/src/state.c	2007-05-14 18:26:51.000000000 +0200
++++ gq-1.2.3_fixed/src/state.c	2012-11-13 18:23:56.774873268 +0100
+@@ -36,7 +36,7 @@
+ #include <errno.h>
+ 
+ #include <glib/gi18n.h>
+-#include <glib/gmessages.h>
++/* #include <glib/gmessages.h> */
+ #include <gtk/gtk.h>
+ 
+ #include "xmlparse.h"
