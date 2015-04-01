@@ -109,6 +109,9 @@ Compiling:
   with TLS capabilities enabled, and GQ should auto-configure.  See
   README.TLS for more information.
 
+  Beware of using the new openssl 1.x library.
+  Only the old 0.9.x works.
+
 
 Contributing:
 
@@ -120,6 +123,10 @@ Contributing:
 
 
 Contact:
+
+  Because nobody seems to support it on sourcefoge Joerg Neikes
+  <androdev4u@gamil.com> made an own fork on github.
+  Version 1.2.3 was the only right working for me.
 
   For any feedback, comments, suggestions for improvement, and requests for
   features, please join the mailing list at Sourceforge. You can subscribe
