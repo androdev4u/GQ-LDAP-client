@@ -85,7 +85,7 @@
 #define HAVE_LDAP_STR2OBJECTCLASS 1
 
 /* Define if you have libcrypto */
-/* #undef HAVE_LIBCRYPTO */
+#define HAVE_LIBCRYPTO 1
 
 /* Define if you have libgcrypt */
 #define HAVE_LIBGCRYPT 1
@@ -112,13 +112,13 @@
 #define HAVE_OPENLDAP2 1
 
 /* Define if you have SASL */
-#define HAVE_SASL 1
+/* #undef HAVE_SASL */
 
 /* Define to 1 if you have the <sasl.h> header file. */
 /* #undef HAVE_SASL_H */
 
 /* Define to 1 if you have the <sasl/sasl.h> header file. */
-#define HAVE_SASL_SASL_H 1
+/* #undef HAVE_SASL_SASL_H */
 
 /* Define to 1 if you have the `snprintf' function. */
 #define HAVE_SNPRINTF 1

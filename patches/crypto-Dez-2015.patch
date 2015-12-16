@@ -1,0 +1,30 @@
+--- configure_old	2015-12-16 18:07:14.959351440 +0100
++++ configure	2015-12-16 18:10:33.289702057 +0100
+@@ -5033,7 +5033,8 @@
+ 
+ for ssldir in $with_ssl_prefix /usr/local/ssl /usr/local/openssl ; do
+ 	if test -d "$ssldir" ; then
+-		LDFLAGS="$LDFLAGS -L$ssldir/lib"
++#		LDFLAGS="$LDFLAGS -L$ssldir/lib"
++		LDFLAGS="$LDFLAGS -L$ssldir"
+ 		CPPFLAGS="$CPPFLAGS -I$ssldir/include"
+ 		break
+ 	fi
+@@ -6167,7 +6168,7 @@
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lssl  $LIBS"
++LIBS="-lssl -lcrypto  $LIBS"
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+@@ -6223,7 +6224,7 @@
+ { echo "$as_me:$LINENO: result: $ac_cv_lib_ssl_SSL_new" >&5
+ echo "${ECHO_T}$ac_cv_lib_ssl_SSL_new" >&6; }
+ if test $ac_cv_lib_ssl_SSL_new = yes; then
+-  LIBS="-lssl $LIBS"
++  LIBS="-lssl -lcrypto $LIBS"
+ 
+ fi
+ 

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=GQ LDAP Client
+GenericName=LDAP Client
+Comment=Browse, Search and Manipulate LDAP Directories
+Exec=gq
+StartupNotify=true
+Terminal=false
+Type=Application
+Icon=gq
+Categories=Network;GNOME;GTK;Database;
+#MimeType=text/x-ldif
